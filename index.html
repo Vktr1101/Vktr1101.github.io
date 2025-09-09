@@ -8,92 +8,252 @@
   <meta property="og:title" content="CV — Numele Tău" />
   <meta property="og:description" content="CV online — Numele Tău: rol, experiență, proiecte, studii și contact." />
   <meta property="og:type" content="website" />
+  <meta name="color-scheme" content="light dark" />
   <style>
+    /* =========
+       Design tokens & theming
+       ========= */
     :root {
       --bg: #0b0c10;
-      --panel: #101218;
+      --panel: #0f1218;
       --text: #e8ecf1;
       --muted: #a9b3c0;
       --brand: #6aa7ff;
       --accent: #79e3c4;
-      --border: #1c2230;
+      --border: #1b2231;
+      --shadow: 0 8px 40px rgba(0,0,0,.18);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-sm: 10px;
+      --space-1: 6px;
+      --space-2: 10px;
+      --space-3: 14px;
+      --space-4: 18px;
+      --space-5: 22px;
+      --space-6: 28px;
+      --maxw: 1000px;
+      --ring: 2px solid color-mix(in oklab, var(--brand) 60%, white 0%);
+      --ring-offset: 2px;
+      --grid-gap: 18px;
+      --nav-h: 64px;
+
+      /* Fluid type */
+      --fs-12: clamp(11px, .8vw, 12px);
+      --fs-14: clamp(12px, .9vw, 14px);
+      --fs-16: clamp(14px, 1vw, 16px);
+      --fs-18: clamp(16px, 1.2vw, 18px);
+      --fs-20: clamp(18px, 1.4vw, 20px);
+      --fs-32: clamp(24px, 4vw, 32px);
+      --fs-44: clamp(28px, 6vw, 44px);
+      color-scheme: dark;
+      accent-color: var(--brand);
     }
     @media (prefers-color-scheme: light) {
       :root {
         --bg: #f7f9fc;
         --panel: #ffffff;
-        --text: #101318;
-        --muted: #5b6676;
+        --text: #0f1320;
+        --muted: #536073;
         --brand: #2b6cff;
         --accent: #17b890;
         --border: #e6ebf2;
+        --shadow: 0 10px 30px rgba(26,38,61,.08);
+        color-scheme: light;
       }
     }
-    * { box-sizing: border-box; }
+
+    /* =========
+       Base & a11y
+       ========= */
+    *, *::before, *::after { box-sizing: border-box; }
     html, body { height: 100%; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+    }
     body {
-      margin: 0; background: radial-gradient(1200px 600px at 20% -10%, rgba(106,167,255,.12), transparent),
-      radial-gradient(900px 500px at 110% 0%, rgba(121,227,196,.12), transparent), var(--bg);
+      margin: 0;
+      background:
+        radial-gradient(1100px 560px at 20% -10%, color-mix(in oklab, var(--brand) 22%, transparent) , transparent),
+        radial-gradient(900px 500px at 110% 0%, color-mix(in oklab, var(--accent) 18%, transparent), transparent),
+        var(--bg);
       color: var(--text);
-      font: 16px/1.6 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      font: var(--fs-16)/1.62 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
     }
-    .wrap { max-width: 960px; margin: 0 auto; padding: 28px 20px 80px; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: var(--space-6) var(--space-3) 90px; }
+
+    /* Skip link */
+    .skip-link {
+      position: fixed; inset-inline-start: var(--space-3); inset-block-start: -80px;
+      z-index: 50; padding: 8px 10px; border-radius: var(--radius-sm);
+      background: var(--panel); border: 1px solid var(--border); box-shadow: var(--shadow);
+      transition: transform .2s ease, inset-block-start .2s ease;
+      transform: translateY(-10px);
+    }
+    .skip-link:focus { inset-block-start: var(--space-3); outline: none; }
+
+    /* =========
+       Header + Nav
+       ========= */
     header { display: grid; gap: 12px; align-items: center; grid-template-columns: 1fr auto; }
-    .id {
-      display: grid; gap: 6px;
+    .id { display: grid; gap: 6px; }
+    h1 { font-size: var(--fs-44); line-height: 1.08; margin: 0; letter-spacing: -.02em; }
+    .role { font-size: var(--fs-18); color: var(--muted); }
+    .meta a { color: inherit; }
+    .meta a:hover { color: var(--brand); }
+
+    /* Sticky nav with blur */
+    nav {
+      position: sticky; top: 10px; z-index: 20;
+      display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+      backdrop-filter: saturate(140%) blur(8px);
+      background: color-mix(in oklab, var(--panel) 82%, transparent);
+      border: 1px solid var(--border); border-radius: var(--radius-md);
+      padding: 8px; box-shadow: var(--shadow);
     }
-    h1 { font-size: 40px; line-height: 1.1; margin: 0; letter-spacing: -.02em; }
-    .role { font-size: 18px; color: var(--muted); }
-    nav { display: flex; gap: 10px; flex-wrap: wrap; }
+
     .btn {
+      --bg-btn: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.06));
       border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.04));
-      color: var(--text); text-decoration: none; padding: 10px 14px; border-radius: 12px;
+      background: var(--bg-btn);
+      color: var(--text); text-decoration: none; padding: 9px 12px; border-radius: var(--radius-md);
       box-shadow: 0 1px 0 rgba(255,255,255,.04) inset, 0 1px 12px rgba(0,0,0,.12);
-      transition: transform .08s ease, border-color .2s ease;
+      transition: transform .08s ease, border-color .2s ease, box-shadow .2s ease;
+      font-size: var(--fs-14);
     }
     .btn:hover { transform: translateY(-1px); border-color: var(--brand); }
+    .btn:active { transform: translateY(0); }
     .btn.primary { border-color: var(--brand); }
-
-    .grid { display: grid; gap: 18px; grid-template-columns: 1fr; margin-top: 22px; }
-    @media (min-width: 900px) { .grid { grid-template-columns: 2fr 1fr; } }
-
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.06)), var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 18px; padding: 18px 18px; box-shadow: 0 8px 40px rgba(0,0,0,.18);
+    .btn:focus-visible {
+      outline: var(--ring); outline-offset: var(--ring-offset);
+      box-shadow: 0 0 0 4px color-mix(in oklab, var(--brand) 25%, transparent);
     }
-    .card h2 { margin: 0 0 10px; font-size: 18px; letter-spacing: .02em; text-transform: uppercase; color: var(--muted); }
-    .item { padding: 12px 0; border-top: 1px dashed var(--border); }
-    .item:first-of-type { border-top: 0; }
-    .title { font-weight: 700; }
-    .meta { color: var(--muted); font-size: 14px; }
-    .desc { margin-top: 6px; }
-    .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
-    .tag { font-size: 12px; padding: 6px 8px; border-radius: 10px; border: 1px solid var(--border); background: rgba(255,255,255,.02); }
 
+    /* =========
+       Layout
+       ========= */
+    .grid { display: grid; gap: var(--grid-gap); grid-template-columns: 1fr; margin-top: var(--space-5); align-items: start; }
+    @media (min-width: 900px) { .grid { grid-template-columns: 2fr 1fr; } }
+    main { display: grid; gap: var(--grid-gap); }
+    .sidebar { display: grid; gap: var(--grid-gap); }
+
+    /* =========
+       Card
+       ========= */
+    .card {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.06)),
+        var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4);
+      box-shadow: var(--shadow);
+      transition: border-color .2s ease, transform .12s ease;
+    }
+    .card:hover { border-color: color-mix(in oklab, var(--border) 60%, var(--brand) 40%); }
+    .card h2 {
+      margin: 0 0 8px;
+      font: 700 var(--fs-18)/1.3 ui-sans-serif, system-ui;
+      letter-spacing: .06em; text-transform: uppercase; color: var(--muted);
+    }
+
+    .item { padding: 14px 0; border-top: 1px dashed var(--border); }
+    .item:first-of-type { border-top: 0; }
+    .title { font-weight: 700; font-size: var(--fs-16); }
+    .meta { color: var(--muted); font-size: var(--fs-14); margin-top: 4px; }
+    .desc { margin-top: 8px; }
+
+    /* Tags / chips */
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    .tag {
+      font-size: var(--fs-12); padding: 6px 8px; border-radius: 999px;
+      border: 1px solid var(--border); background: rgba(255,255,255,.02);
+      transition: transform .08s ease, border-color .2s ease, background-color .2s ease;
+      white-space: nowrap;
+    }
+    .tag:hover { transform: translateY(-1px); border-color: var(--brand); background: color-mix(in oklab, var(--brand) 10%, transparent); }
+
+    /* Sidebar stickiness */
     .sidebar .card { position: sticky; top: 14px; }
 
-    footer { margin-top: 28px; color: var(--muted); font-size: 14px; text-align: center; }
+    /* =========
+       Timeline look (Experiență)
+       ========= */
+    #experienta .item {
+      position: relative; padding-left: 22px; border-top-style: solid; border-top-color: transparent;
+    }
+    #experienta .item::before {
+      content: ""; position: absolute; inset-inline-start: 0; inset-block-start: 0.9em;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #fff 0 15%, var(--brand) 40% 100%);
+      border: 1px solid color-mix(in oklab, var(--brand) 60%, var(--border) 40%);
+      box-shadow: 0 0 0 4px color-mix(in oklab, var(--brand) 16%, transparent);
+    }
+    #experienta .item + .item { border-top: 1px dashed var(--border); }
+    #experienta .item:not(:last-child) { padding-bottom: 18px; }
+    #experienta .item::after {
+      content: ""; position: absolute; inset-inline-start: 4px; inset-block-start: 1.7em; width: 2px; bottom: -8px;
+      background: repeating-linear-gradient( to bottom, var(--border), var(--border) 6px, transparent 6px, transparent 12px );
+    }
+    #experienta .item:last-child::after { display: none; }
 
-    /* Print-friendly */
+    /* =========
+       Anchors & sections
+       ========= */
+    section { scroll-margin-top: calc(var(--nav-h) + 20px); }
+    :target .card, section:target {
+      outline: 2px solid color-mix(in oklab, var(--brand) 55%, transparent);
+      outline-offset: 2px;
+    }
+
+    /* =========
+       Footer
+       ========= */
+    footer { margin-top: var(--space-6); color: var(--muted); font-size: var(--fs-14); text-align: center; opacity: .9; }
+    footer a { color: inherit; }
+    footer a:hover { color: var(--brand); }
+
+    /* Links */
+    a { text-decoration-color: color-mix(in oklab, currentColor 30%, transparent); text-underline-offset: 3px; }
+    a:hover { text-decoration-color: currentColor; }
+
+    /* =========
+       Print
+       ========= */
     @media print {
       body { background: #fff; }
       .wrap { max-width: 100%; padding: 0; }
-      nav, footer { display: none !important; }
-      .card { box-shadow: none; }
+      nav, .sidebar, footer { display: none !important; }
+      .card { box-shadow: none; border-color: #00000022; }
+      a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 11px; color: #555; }
+    }
+
+    /* High contrast/forced colors */
+    @media (forced-colors: active) {
+      .btn, .card { border: 1px solid CanvasText; }
+      .btn:focus-visible { outline: 2px solid Highlight; }
     }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#profil">Sari la conținut</a>
+
   <div class="wrap">
     <header>
       <div class="id">
         <h1>Numele Tău</h1>
         <div class="role">Rol / Titlu — Locație, România</div>
-        <div class="meta">Email: <a href="mailto:tu@exemplu.ro">tu@exemplu.ro</a> • GitHub: <a href="https://github.com/username" target="_blank" rel="noreferrer">@username</a> • LinkedIn: <a href="https://linkedin.com/in/username" target="_blank" rel="noreferrer">/in/username</a></div>
+        <div class="meta">
+          Email: <a href="mailto:tu@exemplu.ro">tu@exemplu.ro</a> •
+          GitHub: <a href="https://github.com/username" target="_blank" rel="noreferrer">@username</a> •
+          LinkedIn: <a href="https://linkedin.com/in/username" target="_blank" rel="noreferrer">/in/username</a>
+        </div>
       </div>
-      <nav>
+
+      <nav aria-label="Navigare secțiuni">
         <a class="btn primary" href="CV.pdf" target="_blank" rel="noreferrer">Descarcă PDF</a>
         <a class="btn" href="#proiecte">Proiecte</a>
         <a class="btn" href="#experienta">Experiență</a>
@@ -103,10 +263,10 @@
 
     <div class="grid">
       <main>
-        <section id="profil" class="card">
-          <h2>Profil</h2>
+        <section id="profil" class="card" aria-labelledby="h-profil">
+          <h2 id="h-profil">Profil</h2>
           <p>Sunt un/ o <strong>rol / specializare</strong> cu interes pentru <em>tehnologii / domenii</em>, orientat(ă) spre rezultate și calitate. Îmi place să construiesc produse utile și curate din punct de vedere tehnic.</p>
-          <div class="tags">
+          <div class="tags" aria-label="Tehnologii">
             <span class="tag">JavaScript</span>
             <span class="tag">TypeScript</span>
             <span class="tag">React</span>
@@ -115,22 +275,27 @@
           </div>
         </section>
 
-        <section id="proiecte" class="card">
-          <h2>Proiecte</h2>
+        <section id="proiecte" class="card" aria-labelledby="h-proiecte">
+          <h2 id="h-proiecte">Proiecte</h2>
           <div class="item">
-            <div class="title">Proiect A — <a href="https://github.com/username/proiect-a" target="_blank" rel="noreferrer">cod sursă</a> · <a href="https://proiect-a.example" target="_blank" rel="noreferrer">demo</a></div>
+            <div class="title">
+              Proiect A — <a href="https://github.com/username/proiect-a" target="_blank" rel="noreferrer">cod sursă</a> ·
+              <a href="https://proiect-a.example" target="_blank" rel="noreferrer">demo</a>
+            </div>
             <div class="meta">2024 — prezent • Stack: React, Tailwind, Node</div>
             <p class="desc">Descriere scurtă a proiectului (problemă, soluție, rezultate). Ideal: cifre/impact. Ex.: „+35% rată de conversie”.</p>
           </div>
           <div class="item">
-            <div class="title">Proiect B — <a href="https://github.com/username/proiect-b" target="_blank" rel="noreferrer">cod sursă</a></div>
+            <div class="title">
+              Proiect B — <a href="https://github.com/username/proiect-b" target="_blank" rel="noreferrer">cod sursă</a>
+            </div>
             <div class="meta">2023 • Stack: Python, FastAPI</div>
             <p class="desc">Descriere scurtă…</p>
           </div>
         </section>
 
-        <section id="experienta" class="card">
-          <h2>Experiență</h2>
+        <section id="experienta" class="card" aria-labelledby="h-exp">
+          <h2 id="h-exp">Experiență</h2>
           <div class="item">
             <div class="title">Companie X — Poziție</div>
             <div class="meta">Ian 2023 — Aug 2025 • București | Realizări cheie</div>
@@ -149,8 +314,8 @@
           </div>
         </section>
 
-        <section id="studii" class="card">
-          <h2>Studii</h2>
+        <section id="studii" class="card" aria-labelledby="h-studii">
+          <h2 id="h-studii">Studii</h2>
           <div class="item">
             <div class="title">Universitatea Z — Program</div>
             <div class="meta">2018 — 2021</div>
@@ -159,7 +324,7 @@
         </section>
       </main>
 
-      <aside class="sidebar">
+      <aside class="sidebar" aria-label="Bară laterală">
         <section class="card">
           <h2>Competențe</h2>
           <div class="tags">
@@ -170,14 +335,16 @@
             <span class="tag">Testing</span>
           </div>
         </section>
-        <section class="card" style="margin-top: 18px;">
+
+        <section class="card">
           <h2>Certificări</h2>
           <div class="item">
             <div class="title">Certificare Relevantă</div>
             <div class="meta">2024</div>
           </div>
         </section>
-        <section class="card" style="margin-top: 18px;">
+
+        <section class="card">
           <h2>Contact</h2>
           <p>Deschis pentru oportunități. Cel mai ușor mă găsești pe email.</p>
           <a class="btn" href="mailto:tu@exemplu.ro">Trimite-mi un email</a>
@@ -191,6 +358,7 @@
   </div>
 
   <script>
+    // Actualizează anul din footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
