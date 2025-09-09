@@ -103,7 +103,7 @@ body{
 }
 .card{background:transparent!important;border:none!important;box-shadow:none!important;padding:0!important}
 .hero-title{
-  font-size:clamp(192px,28vw,320px);
+  font-size:clamp(320px, 36vw, 720px);
   line-height:1.02;
   letter-spacing:-.012em;
   margin-top:24px;
