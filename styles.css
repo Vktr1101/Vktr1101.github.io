@@ -1,12 +1,11 @@
-/* ====== Layout & Theme (v13) ====== */
+/* ====== Layout & Theme (v14) ====== */
 :root{
-  --sidebar-bg: #161418;   /* left sidebar */
-  --content-bg: #232323;   /* right side */
+  --sidebar-bg: #161418;
+  --content-bg: #232323;
 
   --text:#e8ecf1;
   --muted:#a9b3c0;
 
-  /* purple accent */
   --brand:#a855f7;
   --accent:#a855f7;
 
@@ -64,7 +63,7 @@ body{
 
   background: var(--sidebar-bg);
   border: none;
-  border-radius: 0;   /* square corners */
+  border-radius: 0;
   padding: 18px;
 }
 @media (max-width: 900px){
@@ -79,11 +78,11 @@ body{
 .role{margin:0; color:var(--text); font-size:var(--fs-14)}
 .edu{margin-top:6px; text-align:center; color:var(--muted); font-size:var(--fs-14); display:grid; gap:4px}
 
-/* ====== Section nav: purple text; active = bold + purple outline ====== */
+/* ====== Section nav: purple label; active = bold + purple outline ====== */
 .sidenav{margin-top:12px; width:100%; display:grid; gap:8px}
 .nav-link{
   display:block; width:100%; text-decoration:none;
-  color: var(--brand);                          /* purple label */
+  color: var(--brand);
   border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:10px 12px;
   background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.10));
   text-align:center; font-size:var(--fs-14);
@@ -91,7 +90,7 @@ body{
 }
 .nav-link:hover{transform:translateY(-1px); border-color:var(--brand)}
 .nav-link.active{
-  font-weight:700;                               /* bold only when active */
+  font-weight:700;
   border-color:var(--brand);
   box-shadow:0 0 0 3px color-mix(in oklab, var(--brand) 24%, transparent);
 }
@@ -129,14 +128,20 @@ body{
   .sidenav-mobile .nav-link{ color: var(--brand); }
 }
 
-/* ====== Right side (no boxes) ====== */
+/* ====== Right side ====== */
 .content{display:grid; gap:24px}
 .card{ background:transparent !important; border:none !important; box-shadow:none !important; padding:0 !important; }
-.hero-title{ font-size: clamp(34px, 6vw, 56px); line-height:1.1; }
+
+/* Bigger hero title */
+.hero-title{
+  font-size: clamp(56px, 9vw, 96px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+
 .card h2{margin:0 0 10px; font:700 var(--fs-22)/1.25 ui-sans-serif; letter-spacing:.02em}
 .hl{color:var(--text)}
-.tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
-.tag{font-size:var(--fs-12); padding:6px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.10)}
 .meta{color:var(--muted); font-size:var(--fs-14); margin-top:4px}
 
 /* Footer */
