@@ -3,50 +3,47 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CV — Numele Tău</title>
-  <meta name="description" content="CV online — Numele Tău: rol, experiență, proiecte, studii și contact." />
+  <title>CV — Victor Ilie</title>
+  <meta name="description" content="CV online — Victor Ilie: despre mine, studii și CV." />
   <meta name="color-scheme" content="light dark" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=10" />
 </head>
 <body>
   <div class="layout">
-    <!-- Sidebar stânga -->
+    <!-- Sidebar stânga (fix) -->
     <aside class="sidebar" aria-label="Profil și navigare">
       <div class="profile">
-        <!-- Înlocuiește avatar.jpg cu poza ta (300x300px recomandat) -->
-        <img src="avatar.jpg" alt="Poză profil Numele Tău" class="avatar" />
-        <h1 class="name">Numele Tău</h1>
-        <p class="role">Rol / Titlu</p>
+        <!-- Pune o poză locală (ex. avatar.jpg) sau lasă placeholderul -->
+        <img src="avatar.jpg" alt="Poză profil Victor Ilie" class="avatar" />
+        <h1 class="name">Victor Ilie</h1>
+        <p class="role">Student — Computer Science and Economics</p>
 
         <div class="edu">
-          <div>Facultatea X</div>
-          <div>Universitatea Y</div>
-          <div>Locație, România</div>
+          <div>Academy of Economic Studies</div>
+          <div>Faculty: Cybernetics, Statistics and Informatics Economics</div>
+          <div>Specialization: Computer Science and Economics</div>
+          <div>București, Sector 4, România</div>
         </div>
 
         <nav class="sidenav" aria-label="Meniu secțiuni">
           <a href="#profil" class="nav-link active">Despre mine</a>
-          <a href="#proiecte" class="nav-link">Proiecte</a>
-          <a href="#experienta" class="nav-link">Experiență</a>
           <a href="#studii" class="nav-link">Studii</a>
           <a href="CV.pdf" target="_blank" rel="noreferrer" class="nav-link">CV</a>
         </nav>
 
         <div class="links">
-          <a href="mailto:tu@exemplu.ro" class="pill">tu@exemplu.ro</a>
-          <a href="https://github.com/username" target="_blank" rel="noreferrer" class="pill">@username</a>
-          <a href="https://linkedin.com/in/username" target="_blank" rel="noreferrer" class="pill">/in/username</a>
+          <a href="mailto:victorilie93@gmail.com" class="pill">victorilie93@gmail.com</a>
+          <a href="https://github.com/Vktr1101" target="_blank" rel="noreferrer" class="pill">github.com/Vktr1101</a>
+          <a href="https://www.linkedin.com/in/victor-mihai-ilie-916039333/" target="_blank" rel="noreferrer" class="pill">LinkedIn</a>
         </div>
 
         <!-- Buton pentru mobile: pliază/derulează meniul -->
         <button class="menu-toggle" aria-expanded="false" aria-controls="sidenav-mobile">Meniu</button>
       </div>
 
-      <!-- Nav pentru mobile (copie minimală) -->
+      <!-- Nav pentru mobile -->
       <nav id="sidenav-mobile" class="sidenav-mobile" hidden>
         <a href="#profil" class="nav-link">Despre mine</a>
-        <a href="#proiecte" class="nav-link">Proiecte</a>
-        <a href="#experienta" class="nav-link">Experiență</a>
         <a href="#studii" class="nav-link">Studii</a>
         <a href="CV.pdf" target="_blank" rel="noreferrer" class="nav-link">CV</a>
       </nav>
@@ -55,94 +52,36 @@
     <!-- Conținut dreapta -->
     <main class="content">
       <section id="profil" class="card">
-        <h2>Hey, sunt <span class="hl">Numele Tău</span>!</h2>
+        <h2>Hey, sunt <span class="hl">Victor Ilie</span>!</h2>
         <p>
-          Sunt un/ o <strong>rol / specializare</strong> cu interes pentru
-          <em>tehnologii / domenii</em>, orientat(ă) spre rezultate și calitate.
-          Îmi place să construiesc produse utile și curate din punct de vedere tehnic.
+          Sunt student la <strong>Academy of Economic Studies</strong>, în cadrul
+          <em>Faculty: Cybernetics, Statistics and Informatics Economics</em>,
+          specializarea <strong>Computer Science and Economics</strong>.
+          Locuiesc în <strong>București, Sector 4</strong>, România. Mă pasionează zona dintre
+          informatică și economie — îmi place să înțeleg datele și să construiesc lucruri utile.
         </p>
-        <div class="tags">
-          <span class="tag">JavaScript</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">React</span>
-          <span class="tag">Node.js</span>
+        <!-- Dacă vrei poți șterge sau adapta tag-urile de mai jos -->
+        <div class="tags" aria-label="Interese / competențe">
+          <span class="tag">Computer Science &amp; Economics</span>
+          <span class="tag">Data</span>
           <span class="tag">SQL</span>
+          <span class="tag">Python</span>
+          <span class="tag">Web</span>
         </div>
       </section>
 
-      <section id="proiecte" class="card">
-        <h2>Proiecte</h2>
-
-        <article class="proj">
-          <header class="proj-h">
-            <h3>Proiect A</h3>
-            <div class="proj-links">
-              <a href="https://github.com/username/proiect-a" target="_blank" rel="noreferrer">cod sursă</a>
-              <span>·</span>
-              <a href="https://proiect-a.example" target="_blank" rel="noreferrer">demo</a>
-            </div>
-          </header>
-          <div class="meta">2024 — prezent • Stack: React, Tailwind, Node</div>
-          <p>Descriere scurtă a proiectului (problemă, soluție, rezultate). Ex.: „+35% rată de conversie”.</p>
-        </article>
-
-        <article class="proj">
-          <header class="proj-h">
-            <h3>Proiect B</h3>
-            <div class="proj-links">
-              <a href="https://github.com/username/proiect-b" target="_blank" rel="noreferrer">cod sursă</a>
-            </div>
-          </header>
-          <div class="meta">2023 • Stack: Python, FastAPI</div>
-          <p>Descriere scurtă…</p>
-        </article>
-      </section>
-
-      <section id="experienta" class="card">
-        <h2>Experiență</h2>
-
-        <div class="timeline">
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <h3>Companie X — Poziție</h3>
-              <div class="meta">Ian 2023 — Aug 2025 • București | Realizări cheie</div>
-              <ul>
-                <li>Am condus …</li>
-                <li>Am redus … cu 20% prin …</li>
-                <li>Am implementat …</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="tl-item">
-            <div class="tl-dot"></div>
-            <div class="tl-content">
-              <h3>Companie Y — Poziție</h3>
-              <div class="meta">2021 — 2023 • Remote</div>
-              <ul>
-                <li>Responsabilități / rezultate …</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      <!-- Am eliminat Proiecte și Experiență -->
 
       <section id="studii" class="card">
         <h2>Studii</h2>
         <div class="item">
-          <h3>Universitatea Z — Program</h3>
-          <div class="meta">2018 — 2021</div>
-          <p>Detalii relevante: proiecte, cursuri, premii.</p>
+          <h3>Academy of Economic Studies</h3>
+          <div class="meta">Faculty: Cybernetics, Statistics and Informatics Economics</div>
+          <div class="meta">Specialization: Computer Science and Economics</div>
+          <p>Focus pe informatică economică, analiză de date și fundament economic.</p>
         </div>
       </section>
 
-      <footer class="footer">
-        © <span id="year"></span> Numele Tău — construit cu GitHub Pages.
-      </footer>
-    </main>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
+      <section id="cv" class="card">
+        <h2>CV</h2>
+        <p>Poți descărca versiunea PDF de aici:</p
