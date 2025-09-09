@@ -1,8 +1,8 @@
-/* ====== Layout & Theme (v7) ====== */
+/* ====== Layout & Theme (v8) ====== */
 :root{
   /* culori cerute */
-  --sidebar-bg: #271934;   /* stânga */
-  --content-bg: #161418;   /* dreapta */
+  --sidebar-bg: #161418;   /* stânga */
+  --content-bg: #513F53;   /* dreapta */
 
   --text:#e8ecf1;
   --muted:#a9b3c0;
@@ -28,8 +28,8 @@
 @media (prefers-color-scheme: light){
   :root{
     /* păstrăm aceleași culori și în light mode */
-    --sidebar-bg:#271934;
-    --content-bg:#161418;
+    --sidebar-bg:#161418;
+    --content-bg:#513F53;
     --text:#e8ecf1;
     --muted:#a9b3c0;
   }
