@@ -1,12 +1,12 @@
-/* ====== Layout & Theme (v6) ====== */
+/* ====== Layout & Theme (v7) ====== */
 :root{
-  /* culorile cerute */
-  --sidebar-bg: #0E0122;   /* stânga */
-  --content-bg: #1A191B;   /* dreapta */
+  /* culori cerute */
+  --sidebar-bg: #271934;   /* stânga */
+  --content-bg: #161418;   /* dreapta */
 
-  --text:#e8ecf1; 
+  --text:#e8ecf1;
   --muted:#a9b3c0;
-  --brand:#6aa7ff; 
+  --brand:#6aa7ff;
   --accent:#79e3c4;
 
   /* structură */
@@ -27,9 +27,9 @@
 }
 @media (prefers-color-scheme: light){
   :root{
-    /* păstrăm aceleași culori și în light mode ca să nu se inverseze */
-    --sidebar-bg:#0E0122;
-    --content-bg:#1A191B;
+    /* păstrăm aceleași culori și în light mode */
+    --sidebar-bg:#271934;
+    --content-bg:#161418;
     --text:#e8ecf1;
     --muted:#a9b3c0;
   }
@@ -84,7 +84,7 @@ body{
 .profile{display:grid; justify-items:center; gap:10px}
 .avatar{
   width:160px; height:160px; border-radius:50%; object-fit:cover;
-  border:1px solid rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.08);
 }
 .name{margin:4px 0 0; font-size:var(--fs-36); line-height:1.1; letter-spacing:-.02em}
 .role{margin:0; color:var(--muted); font-size:var(--fs-14)}
@@ -94,8 +94,8 @@ body{
 .sidenav{margin-top:12px; width:100%; display:grid; gap:8px}
 .nav-link{
   display:block; width:100%; text-decoration:none; color:var(--text);
-  border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:10px 12px;
-  background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.06));
+  border:1px solid rgba(255,255,255,.10); border-radius:12px; padding:10px 12px;
+  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.10));
   text-align:center; font-size:var(--fs-14);
   transition:transform .08s ease, border-color .2s ease, background-color .2s ease;
 }
@@ -104,14 +104,14 @@ body{
 
 .links{margin-top:12px; display:flex; flex-wrap:wrap; gap:8px; justify-content:center}
 .pill{
-  font-size:var(--fs-12); padding:6px 10px; border:1px solid rgba(255,255,255,.06); border-radius:999px;
-  color:var(--text); text-decoration:none; background:rgba(255,255,255,.04);
+  font-size:var(--fs-12); padding:6px 10px; border:1px solid rgba(255,255,255,.10); border-radius:999px;
+  color:var(--text); text-decoration:none; background:rgba(255,255,255,.06);
 }
 .pill:hover{border-color:var(--brand)}
 
 .menu-toggle{
   display:none; margin-top:12px; width:100%;
-  border:1px solid rgba(255,255,255,.06); background:var(--sidebar-bg); color:var(--text);
+  border:1px solid rgba(255,255,255,.10); background:var(--sidebar-bg); color:var(--text);
   padding:10px 12px; border-radius:12px; font-size:var(--fs-14);
 }
 @media (max-width: 900px){
@@ -119,7 +119,7 @@ body{
   .menu-toggle{display:block}
   .sidenav-mobile{
     margin-top:10px; display:grid; gap:8px; background:var(--sidebar-bg);
-    border:1px dashed rgba(255,255,255,.10); border-radius:12px; padding:10px;
+    border:1px dashed rgba(255,255,255,.15); border-radius:12px; padding:10px;
   }
   .sidenav-mobile .nav-link{text-align:left}
 }
@@ -135,13 +135,13 @@ body{
 .card h2{margin:0 0 10px; font:700 var(--fs-22)/1.25 ui-sans-serif; letter-spacing:.02em}
 .hl{color:var(--brand)}
 .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
-.tag{font-size:var(--fs-12); padding:6px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.04)}
+.tag{font-size:var(--fs-12); padding:6px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.06)}
 
 .meta{color:var(--muted); font-size:var(--fs-14); margin-top:4px}
 
 /* proiecte: separație discretă */
 .proj{padding:10px 0}
-.proj + .proj{border-top:1px dashed rgba(255,255,255,.08)}
+.proj + .proj{border-top:1px dashed rgba(255,255,255,.10)}
 .proj-h{display:flex; flex-wrap:wrap; align-items:center; gap:8px; justify-content:space-between}
 .proj-h h3{margin:0; font-size:var(--fs-18)}
 .proj-links{display:flex; gap:10px}
@@ -159,7 +159,7 @@ body{
 }
 .tl-item::after{
   content:""; position:absolute; left:9px; top:1.6em; bottom:-8px; width:2px;
-  background: repeating-linear-gradient(to bottom, rgba(255,255,255,.10), rgba(255,255,255,.10) 6px, transparent 6px, transparent 12px);
+  background: repeating-linear-gradient(to bottom, rgba(255,255,255,.15), rgba(255,255,255,.15) 6px, transparent 6px, transparent 12px);
 }
 .tl-item:last-child::after{display:none}
 .tl-content h3{margin:0 0 4px; font-size:var(--fs-18)}
