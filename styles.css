@@ -56,7 +56,7 @@ body{
 .profile{display:grid;justify-items:center;gap:12px}
 .avatar{width:160px;height:160px;border-radius:50%;object-fit:cover;border:1px solid rgba(255,255,255,.08)}
 .name{margin:6px 0 0;font-size:var(--fs-36);line-height:1.1;letter-spacing:-.02em}
-.role{margin:0;color:var(--text);font-size:var(--fs-14)}
+.role{margin:0;color:var(--text);font-size:var(--fs-18)}
 .edu{margin-top:8px;text-align:center;color:var(--muted);font-size:var(--fs-14);display:grid;gap:6px}
 .sidenav{margin-top:14px;width:100%;display:grid;gap:10px}
 .nav-link{
@@ -95,16 +95,19 @@ body{
   .sidenav-mobile .nav-link{color:var(--brand)}
 }
 .content{
-  display:grid;gap:40px;padding-top:24px;
-  font-family: Cambria,Cochin,Georgia,Times,"Times New Roman",serif
+  display:grid;gap:40px;
+  padding-top:32px;
+  padding-left:clamp(12px,2vw,28px);
+  padding-right:clamp(40px,6vw,120px);
+  font-family:Cambria,Cochin,Georgia,Times,"Times New Roman",serif
 }
 .card{background:transparent!important;border:none!important;box-shadow:none!important;padding:0!important}
 .hero-title{
-  font-size:clamp(96px,14vw,160px);
+  font-size:clamp(192px,28vw,320px);
   line-height:1.02;
   letter-spacing:-.012em;
-  margin-top:16px;
-  margin-bottom:12px
+  margin-top:24px;
+  margin-bottom:14px
 }
 .hero-bullets{
   margin:12px 0 0 0;
@@ -116,7 +119,7 @@ body{
 .hero-bullets li{
   position:relative;
   padding-left:1.8em;
-  font-size:clamp(18px,2vw,22px);
+  font-size:clamp(18px,1.8vw,22px);
   font-weight:700
 }
 .hero-bullets li::before{
