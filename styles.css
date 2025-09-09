@@ -2,8 +2,10 @@
 :root{
   --bg:#0b0c10; --panel:#0f1218; --text:#e8ecf1; --muted:#a9b3c0;
   --brand:#6aa7ff; --accent:#79e3c4; --border:#1b2231; --shadow:0 8px 40px rgba(0,0,0,.18);
-  --radius-lg:18px; --radius-md:12px; --radius-sm:10px; --space:18px; --gap:22px;
-  --sidebar-w:310px; --maxw:1100px;
+  --radius-lg:18px; --radius-md:12px; --radius-sm:10px;
+  --gap:22px;
+  --sidebar-w:340px;           /* <- lățimea panoului stânga */
+  --page-pad:18px;             /* <- distanța față de marginile paginii */
   --fs-12:clamp(11px,.8vw,12px); --fs-14:clamp(12px,.9vw,14px); --fs-16:clamp(14px,1vw,16px);
   --fs-18:clamp(16px,1.2vw,18px); --fs-22:clamp(18px,1.6vw,22px); --fs-36:clamp(26px,5vw,36px);
   color-scheme:dark; accent-color:var(--brand);
@@ -32,21 +34,45 @@ body{
   -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
 }
 
-/* ====== Layout two-column ====== */
+/* ====== Layout full-width + sidebar fix ====== */
+/* conținutul paginii (dreapta). Sidebarul e scos din flux (fixed), deci ne lăsăm spațiu la stânga pentru el */
 .layout{
-  max-width:var(--maxw); margin:0 auto; padding:24px 18px 80px;
-  display:grid; grid-template-columns: var(--sidebar-w) 1fr; gap:var(--gap);
-}
-@media (max-width: 900px){
-  .layout{grid-template-columns:1fr}
+  /* full-bleed: fără max-width */
+  padding: var(--page-pad);
+  padding-left: calc(var(--sidebar-w) + var(--page-pad) + var(--gap));
 }
 
-/* ====== Sidebar ====== */
+/* sidebar full-height, separat de conținut, fixat la stânga */
 .sidebar{
-  position:sticky; top:18px; align-self:start;
-  background:var(--panel); border:1px solid var(--border); border-radius:var(--radius-lg);
-  padding:18px; box-shadow:var(--shadow);
+  position: fixed;
+  left: var(--page-pad);
+  top: var(--page-pad);
+  bottom: var(--page-pad);
+  width: var(--sidebar-w);
+  overflow: auto;
+
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:18px;
+  box-shadow:var(--shadow);
 }
+
+/* pe mobil: sidebarul devine static (deasupra), iar pagina revine pe o singură coloană */
+@media (max-width: 900px){
+  .layout{
+    padding: var(--page-pad);
+  }
+  .sidebar{
+    position: static;
+    width: auto;
+    left: auto; top: auto; bottom: auto;
+    overflow: visible;
+    margin-bottom: var(--gap);
+  }
+}
+
+/* ====== Sidebar content ====== */
 .profile{display:grid; justify-items:center; gap:10px}
 .avatar{
   width:160px; height:160px; border-radius:50%; object-fit:cover;
@@ -90,7 +116,7 @@ body{
   .sidenav-mobile .nav-link{text-align:left}
 }
 
-/* ====== Content ====== */
+/* ====== Content (dreapta) ====== */
 .content{display:grid; gap:var(--gap)}
 .card{
   background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.06)), var(--panel);
@@ -136,7 +162,7 @@ a:hover{text-decoration-color: currentColor}
 /* print */
 @media print{
   body{background:#fff}
-  .layout{grid-template-columns:1fr}
   .sidebar{display:none}
+  .layout{padding:0}
   .card{box-shadow:none; border-color:#0002}
 }
