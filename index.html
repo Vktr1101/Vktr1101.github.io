@@ -4,24 +4,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CV — Victor Ilie</title>
-  <meta name="description" content="CV online — Victor Ilie: despre mine, studii și CV." />
+  <meta name="description" content="CV online — Victor Ilie: profil, studii și contact." />
   <meta name="color-scheme" content="light dark" />
   <link rel="stylesheet" href="styles.css?v=10" />
 </head>
 <body>
   <div class="layout">
-    <!-- Sidebar stânga (fix) -->
+    <!-- Sidebar stânga -->
     <aside class="sidebar" aria-label="Profil și navigare">
       <div class="profile">
-        <!-- Pune o poză locală (ex. avatar.jpg) sau lasă placeholderul -->
         <img src="avatar.jpg" alt="Poză profil Victor Ilie" class="avatar" />
         <h1 class="name">Victor Ilie</h1>
-        <p class="role">Student — Computer Science and Economics</p>
+
+        <!-- linia 2 (bold) -->
+        <p class="role"><strong>Student - Computer Science Major</strong></p>
 
         <div class="edu">
           <div>Academy of Economic Studies</div>
-          <div>Faculty: Cybernetics, Statistics and Informatics Economics</div>
-          <div>Specialization: Computer Science and Economics</div>
+          <div>Cybernetics, Statistics and Informatics Economics</div>
+          <div>Computer Science and Economics</div>
           <div>București, Sector 4, România</div>
         </div>
 
@@ -33,15 +34,14 @@
 
         <div class="links">
           <a href="mailto:victorilie93@gmail.com" class="pill">victorilie93@gmail.com</a>
-          <a href="https://github.com/Vktr1101" target="_blank" rel="noreferrer" class="pill">github.com/Vktr1101</a>
+          <a href="https://github.com/Vktr1101" target="_blank" rel="noreferrer" class="pill">Github</a>
           <a href="https://www.linkedin.com/in/victor-mihai-ilie-916039333/" target="_blank" rel="noreferrer" class="pill">LinkedIn</a>
+          <a href="tel:0720011302" class="pill">0720011302</a>
         </div>
 
-        <!-- Buton pentru mobile: pliază/derulează meniul -->
         <button class="menu-toggle" aria-expanded="false" aria-controls="sidenav-mobile">Meniu</button>
       </div>
 
-      <!-- Nav pentru mobile -->
       <nav id="sidenav-mobile" class="sidenav-mobile" hidden>
         <a href="#profil" class="nav-link">Despre mine</a>
         <a href="#studii" class="nav-link">Studii</a>
@@ -54,34 +54,36 @@
       <section id="profil" class="card">
         <h2>Hey, sunt <span class="hl">Victor Ilie</span>!</h2>
         <p>
-          Sunt student la <strong>Academy of Economic Studies</strong>, în cadrul
-          <em>Faculty: Cybernetics, Statistics and Informatics Economics</em>,
-          specializarea <strong>Computer Science and Economics</strong>.
-          Locuiesc în <strong>București, Sector 4</strong>, România. Mă pasionează zona dintre
-          informatică și economie — îmi place să înțeleg datele și să construiesc lucruri utile.
+          Student la <strong>Academy of Economic Studies</strong>, programul
+          <em>Computer Science and Economics</em>. Îmi place să construiesc software curat
+          și util și să învăț constant lucruri noi din zona de programare și date.
         </p>
-        <!-- Dacă vrei poți șterge sau adapta tag-urile de mai jos -->
-        <div class="tags" aria-label="Interese / competențe">
-          <span class="tag">Computer Science &amp; Economics</span>
-          <span class="tag">Data</span>
+        <div class="tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">TypeScript</span>
+          <span class="tag">React</span>
+          <span class="tag">Node.js</span>
           <span class="tag">SQL</span>
-          <span class="tag">Python</span>
-          <span class="tag">Web</span>
         </div>
       </section>
 
-      <!-- Am eliminat Proiecte și Experiență -->
+      <!-- Proiecte & Experiență au fost eliminate la cerere -->
 
       <section id="studii" class="card">
         <h2>Studii</h2>
         <div class="item">
-          <h3>Academy of Economic Studies</h3>
-          <div class="meta">Faculty: Cybernetics, Statistics and Informatics Economics</div>
-          <div class="meta">Specialization: Computer Science and Economics</div>
-          <p>Focus pe informatică economică, analiză de date și fundament economic.</p>
+          <h3>Academy of Economic Studies — Computer Science and Economics</h3>
+          <div class="meta">Facultatea: Cybernetics, Statistics and Informatics Economics</div>
+          <p>Locație: București, Sector 4, România</p>
         </div>
       </section>
 
-      <section id="cv" class="card">
-        <h2>CV</h2>
-        <p>Poți descărca versiunea PDF de aici:</p
+      <footer class="footer">
+        © <span id="year"></span> Victor Ilie — construit cu GitHub Pages.
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js?v=10" defer></script>
+</body>
+</html>
