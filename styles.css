@@ -1,8 +1,8 @@
 /* ====== Layout & Theme (v6) ====== */
 :root{
   /* culorile cerute */
-  --sidebar-bg: #222222;   /* stânga */
-  --content-bg: #141414;   /* dreapta */
+  --sidebar-bg: #0E0122;   /* stânga */
+  --content-bg: #1A191B;   /* dreapta */
 
   --text:#e8ecf1; 
   --muted:#a9b3c0;
