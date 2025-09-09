@@ -1,12 +1,12 @@
-/* ====== Layout & Theme (v11) ====== */
+/* ====== Layout & Theme (v13) ====== */
 :root{
-  --sidebar-bg: #161418;  /* stânga (rămâne închis) */
-  --content-bg: #232323;  /* dreapta gri, cum ai cerut */
+  --sidebar-bg: #161418;   /* left sidebar */
+  --content-bg: #232323;   /* right side */
 
   --text:#e8ecf1;
   --muted:#a9b3c0;
 
-  /* accent mov */
+  /* purple accent */
   --brand:#a855f7;
   --accent:#a855f7;
 
@@ -49,19 +49,27 @@ body{
   -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
 }
 
-/* ====== Layout full-bleed + sidebar fix ====== */
+/* ====== Layout full-bleed + fixed sidebar ====== */
 .layout{
   padding: var(--page-pad);
   padding-left: calc(var(--sidebar-w) + var(--gap) + var(--page-pad));
 }
 .sidebar{
-  position: fixed; left: var(--page-pad); top: var(--page-pad); bottom: var(--page-pad);
-  width: var(--sidebar-w); overflow: auto; background: var(--sidebar-bg);
-  border: none; border-radius: 0; padding: 18px;
+  position: fixed;
+  left: var(--page-pad);
+  top: var(--page-pad);
+  bottom: var(--page-pad);
+  width: var(--sidebar-w);
+  overflow: auto;
+
+  background: var(--sidebar-bg);
+  border: none;
+  border-radius: 0;   /* square corners */
+  padding: 18px;
 }
 @media (max-width: 900px){
-  .layout{ padding: 14px; padding-left: 14px; }
-  .sidebar{ position: static; width: auto; overflow: visible; margin-bottom: var(--gap); }
+  .layout{ padding:14px; padding-left:14px; }
+  .sidebar{ position:static; width:auto; overflow:visible; margin-bottom:var(--gap); }
 }
 
 /* ====== Sidebar content ====== */
@@ -71,27 +79,32 @@ body{
 .role{margin:0; color:var(--text); font-size:var(--fs-14)}
 .edu{margin-top:6px; text-align:center; color:var(--muted); font-size:var(--fs-14); display:grid; gap:4px}
 
-/* meniu secțiuni - outline mov */
+/* ====== Section nav: purple text; active = bold + purple outline ====== */
 .sidenav{margin-top:12px; width:100%; display:grid; gap:8px}
 .nav-link{
-  display:block; width:100%; text-decoration:none; color:var(--text);
+  display:block; width:100%; text-decoration:none;
+  color: var(--brand);                          /* purple label */
   border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:10px 12px;
   background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.10));
   text-align:center; font-size:var(--fs-14);
-  transition:transform .08s ease, border-color .2s ease, background-color .2s ease, box-shadow .2s ease;
+  transition:transform .08s ease, border-color .2s ease, background-color .2s ease, box-shadow .2s ease, font-weight .1s ease;
 }
 .nav-link:hover{transform:translateY(-1px); border-color:var(--brand)}
-.nav-link.active{border-color:var(--brand); box-shadow:0 0 0 3px color-mix(in oklab, var(--brand) 24%, transparent)}
+.nav-link.active{
+  font-weight:700;                               /* bold only when active */
+  border-color:var(--brand);
+  box-shadow:0 0 0 3px color-mix(in oklab, var(--brand) 24%, transparent);
+}
 
-/* ====== Contact chips: 2x2 grid, mov & bold ====== */
+/* ====== Contact chips: 2x2 grid, purple & bold ====== */
 .links{
   margin-top:12px;
   display:grid;
-  grid-template-columns: 1fr 1fr;   /* 2 pe rând */
+  grid-template-columns: 1fr 1fr;
   gap:8px;
 }
 @media (max-width: 460px){
-  .links{ grid-template-columns: 1fr; } /* pe ecrane foarte mici, se aliniază pe o singură coloană */
+  .links{ grid-template-columns: 1fr; }
 }
 .pill{
   display:block; text-align:center;
@@ -113,27 +126,28 @@ body{
     margin-top:10px; display:grid; gap:8px; background:var(--sidebar-bg);
     border:1px dashed rgba(255,255,255,.15); border-radius:12px; padding:10px;
   }
-  .sidenav-mobile .nav-link{text-align:left}
+  .sidenav-mobile .nav-link{ color: var(--brand); }
 }
 
-/* ====== Content (dreapta) – fără “casete” ====== */
+/* ====== Right side (no boxes) ====== */
 .content{display:grid; gap:24px}
-.card{ background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; }
+.card{ background:transparent !important; border:none !important; box-shadow:none !important; padding:0 !important; }
+.hero-title{ font-size: clamp(34px, 6vw, 56px); line-height:1.1; }
 .card h2{margin:0 0 10px; font:700 var(--fs-22)/1.25 ui-sans-serif; letter-spacing:.02em}
 .hl{color:var(--text)}
 .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
 .tag{font-size:var(--fs-12); padding:6px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.10)}
 .meta{color:var(--muted); font-size:var(--fs-14); margin-top:4px}
 
-/* footer */
+/* Footer */
 .footer{color:var(--muted); font-size:var(--fs-14); text-align:center; margin-top:8px}
 
-/* ancore & links */
+/* Anchors & links */
 section{scroll-margin-top:24px}
 a{color:inherit; text-decoration-color: color-mix(in oklab, currentColor 30%, transparent); text-underline-offset:3px}
 a:hover{text-decoration-color: currentColor}
 
-/* print */
+/* Print */
 @media print{
   body{background:#fff}
   .sidebar{display:none}
