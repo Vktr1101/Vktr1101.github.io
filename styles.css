@@ -1,18 +1,28 @@
 /* ====== Tokens & theming ====== */
 :root{
-  --bg:#0b0c10; --panel:#0f1218; --text:#e8ecf1; --muted:#a9b3c0;
-  --brand:#6aa7ff; --accent:#79e3c4; --border:#1b2231; --shadow:0 8px 40px rgba(0,0,0,.18);
+  /* culori noi: panou stânga foarte închis, panou dreapta puțin mai deschis */
+  --sidebar-bg:#0b0c10;       /* aproape negru */
+  --content-bg:#141821;       /* gri-închis, un pic mai deschis decât stânga */
+
+  --text:#e8ecf1; --muted:#a9b3c0;
+  --brand:#6aa7ff; --accent:#79e3c4; --border:#1c2230;
+  --shadow:0 8px 40px rgba(0,0,0,.18);
+
   --radius-lg:18px; --radius-md:12px; --radius-sm:10px;
-  --gap:22px;
-  --sidebar-w:340px;           /* <- lățimea panoului stânga */
-  --page-pad:18px;             /* <- distanța față de marginile paginii */
+  --gap:20px;                   /* spațiu între sidebar și conținut */
+  --sidebar-w:340px;            /* lățimea panoului stânga */
+  --page-pad:0px;               /* margine față de muchiile paginii (0 = lipit) */
+
   --fs-12:clamp(11px,.8vw,12px); --fs-14:clamp(12px,.9vw,14px); --fs-16:clamp(14px,1vw,16px);
   --fs-18:clamp(16px,1.2vw,18px); --fs-22:clamp(18px,1.6vw,22px); --fs-36:clamp(26px,5vw,36px);
   color-scheme:dark; accent-color:var(--brand);
 }
 @media (prefers-color-scheme: light){
   :root{
-    --bg:#f7f9fc; --panel:#fff; --text:#0f1320; --muted:#536073; --brand:#2b6cff; --accent:#17b890; --border:#e6ebf2;
+    --sidebar-bg:#0b0c10;  /* păstrăm contrastul dorit și în light, pentru consecvență */
+    --content-bg:#f3f6fb;  /* dacă preferi și aici dark, setează = #141821 */
+    --text:#0f1320; --muted:#536073;
+    --brand:#2b6cff; --accent:#17b890; --border:#e6ebf2;
     --shadow:0 10px 30px rgba(26,38,61,.08);
     color-scheme:light;
   }
@@ -26,23 +36,21 @@ html{scroll-behavior:smooth}
   *{animation-duration:.001ms!important;transition-duration:.001ms!important}
 }
 body{
-  margin:0; color:var(--text); background:
-    radial-gradient(1000px 520px at 10% -10%, color-mix(in oklab, var(--brand) 22%, transparent), transparent),
-    radial-gradient(800px 480px at 120% 0%, color-mix(in oklab, var(--accent) 18%, transparent), transparent),
-    var(--bg);
+  margin:0; color:var(--text);
+  /* fundal plin, fără gradient – ca în site-ul model */
+  background:var(--content-bg);
   font:var(--fs-16)/1.65 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
 }
 
 /* ====== Layout full-width + sidebar fix ====== */
-/* conținutul paginii (dreapta). Sidebarul e scos din flux (fixed), deci ne lăsăm spațiu la stânga pentru el */
 .layout{
-  /* full-bleed: fără max-width */
+  /* full-bleed pe dreapta, lăsăm spațiul pentru sidebar + un mic gutter */
   padding: var(--page-pad);
-  padding-left: calc(var(--sidebar-w) + var(--page-pad) + var(--gap));
+  padding-left: calc(var(--sidebar-w) + var(--gap) + var(--page-pad));
 }
 
-/* sidebar full-height, separat de conținut, fixat la stânga */
+/* sidebar separat, fix, pe toată înălțimea */
 .sidebar{
   position: fixed;
   left: var(--page-pad);
@@ -51,24 +59,19 @@ body{
   width: var(--sidebar-w);
   overflow: auto;
 
-  background:var(--panel);
-  border:1px solid var(--border);
+  background:var(--sidebar-bg);
+  border:1px solid rgba(255,255,255,.04);
   border-radius:var(--radius-lg);
   padding:18px;
   box-shadow:var(--shadow);
 }
 
-/* pe mobil: sidebarul devine static (deasupra), iar pagina revine pe o singură coloană */
+/* pe mobil: sidebarul devine static, deasupra; conținutul ocupă toată lățimea */
 @media (max-width: 900px){
-  .layout{
-    padding: var(--page-pad);
-  }
+  .layout{ padding: 14px }
   .sidebar{
-    position: static;
-    width: auto;
-    left: auto; top: auto; bottom: auto;
-    overflow: visible;
-    margin-bottom: var(--gap);
+    position: static; width: auto; left:auto; top:auto; bottom:auto;
+    overflow: visible; margin-bottom: var(--gap);
   }
 }
 
@@ -76,7 +79,7 @@ body{
 .profile{display:grid; justify-items:center; gap:10px}
 .avatar{
   width:160px; height:160px; border-radius:50%; object-fit:cover;
-  border:1px solid var(--border); box-shadow:0 4px 18px rgba(0,0,0,.25);
+  border:1px solid rgba(255,255,255,.06); box-shadow:0 4px 18px rgba(0,0,0,.25);
 }
 .name{margin:4px 0 0; font-size:var(--fs-36); line-height:1.1; letter-spacing:-.02em}
 .role{margin:0; color:var(--muted); font-size:var(--fs-14)}
@@ -86,7 +89,7 @@ body{
 .sidenav{margin-top:12px; width:100%; display:grid; gap:8px}
 .nav-link{
   display:block; width:100%; text-decoration:none; color:var(--text);
-  border:1px solid var(--border); border-radius:12px; padding:10px 12px;
+  border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:10px 12px;
   background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.06));
   text-align:center; font-size:var(--fs-14);
   transition:transform .08s ease, border-color .2s ease, background-color .2s ease;
@@ -96,65 +99,75 @@ body{
 
 .links{margin-top:12px; display:flex; flex-wrap:wrap; gap:8px; justify-content:center}
 .pill{
-  font-size:var(--fs-12); padding:6px 10px; border:1px solid var(--border); border-radius:999px;
-  color:var(--text); text-decoration:none; background:rgba(255,255,255,.02);
+  font-size:var(--fs-12); padding:6px 10px; border:1px solid rgba(255,255,255,.06); border-radius:999px;
+  color:var(--text); text-decoration:none; background:rgba(255,255,255,.04);
 }
 .pill:hover{border-color:var(--brand)}
 
 .menu-toggle{
   display:none; margin-top:12px; width:100%;
-  border:1px solid var(--border); background:var(--panel); color:var(--text);
+  border:1px solid rgba(255,255,255,.06); background:var(--sidebar-bg); color:var(--text);
   padding:10px 12px; border-radius:12px; font-size:var(--fs-14);
 }
 @media (max-width: 900px){
   .sidenav{display:none}
   .menu-toggle{display:block}
   .sidenav-mobile{
-    margin-top:10px; display:grid; gap:8px; background:var(--panel);
-    border:1px dashed var(--border); border-radius:12px; padding:10px;
+    margin-top:10px; display:grid; gap:8px; background:var(--sidebar-bg);
+    border:1px dashed rgba(255,255,255,.10); border-radius:12px; padding:10px;
   }
   .sidenav-mobile .nav-link{text-align:left}
 }
 
 /* ====== Content (dreapta) ====== */
-.content{display:grid; gap:var(--gap)}
+/* IMPORTANT: scoatem “casetele/cardurile” – conținutul stă direct pe background */
+.content{display:grid; gap:28px}
+
+/* cardurile devin transparente, fără border/umbră/padding */
 .card{
-  background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.06)), var(--panel);
-  border:1px solid var(--border); border-radius:var(--radius-lg); padding:18px; box-shadow:var(--shadow);
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  padding:0 !important;
 }
-.card h2{margin:0 0 8px; font:700 var(--fs-22)/1.3 ui-sans-serif; letter-spacing:.02em}
+
+/* heading-uri și elemente */
+.card h2{margin:0 0 10px; font:700 var(--fs-22)/1.25 ui-sans-serif; letter-spacing:.02em}
 .hl{color:var(--brand)}
 .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
-.tag{font-size:var(--fs-12); padding:6px 8px; border-radius:999px; border:1px solid var(--border); background:rgba(255,255,255,.02)}
+.tag{font-size:var(--fs-12); padding:6px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.04)}
 
 .meta{color:var(--muted); font-size:var(--fs-14); margin-top:4px}
-.proj{padding:12px 0; border-top:1px dashed var(--border)}
-.proj:first-of-type{border-top:0}
+
+/* proiecte – fără borduri de “casetă”; doar separație minimă între articole */
+.proj{padding:10px 0}
+.proj + .proj{border-top:1px dashed rgba(255,255,255,.08)}
 .proj-h{display:flex; flex-wrap:wrap; align-items:center; gap:8px; justify-content:space-between}
 .proj-h h3{margin:0; font-size:var(--fs-18)}
 .proj-links{display:flex; gap:10px}
 .proj-links a{text-decoration:none}
 .proj-links a:hover{text-decoration:underline}
 
-/* timeline experiență */
+/* timeline experiență – păstrăm punctele dar fără casete */
 .timeline{position:relative; display:grid; gap:18px; margin-top:6px}
 .tl-item{display:grid; grid-template-columns:20px 1fr; gap:10px; position:relative}
 .tl-dot{
   width:12px; height:12px; border-radius:50%; margin-top:.5em;
   background: radial-gradient(circle at 30% 30%, #fff 0 15%, var(--brand) 40% 100%);
-  border:1px solid color-mix(in oklab, var(--brand) 60%, var(--border) 40%);
+  border:1px solid color-mix(in oklab, var(--brand) 60%, var(--content-bg) 40%);
   box-shadow:0 0 0 4px color-mix(in oklab, var(--brand) 16%, transparent);
 }
 .tl-item::after{
   content:""; position:absolute; left:9px; top:1.6em; bottom:-8px; width:2px;
-  background: repeating-linear-gradient(to bottom, var(--border), var(--border) 6px, transparent 6px, transparent 12px);
+  background: repeating-linear-gradient(to bottom, rgba(255,255,255,.10), rgba(255,255,255,.10) 6px, transparent 6px, transparent 12px);
 }
 .tl-item:last-child::after{display:none}
 .tl-content h3{margin:0 0 4px; font-size:var(--fs-18)}
 
+/* footer simplu pe background */
 .footer{color:var(--muted); font-size:var(--fs-14); text-align:center; margin-top:8px}
 
-/* anchors */
+/* ancore & links */
 section{scroll-margin-top:24px}
 a{color:inherit; text-decoration-color: color-mix(in oklab, currentColor 30%, transparent); text-underline-offset:3px}
 a:hover{text-decoration-color: currentColor}
@@ -164,5 +177,4 @@ a:hover{text-decoration-color: currentColor}
   body{background:#fff}
   .sidebar{display:none}
   .layout{padding:0}
-  .card{box-shadow:none; border-color:#0002}
 }
