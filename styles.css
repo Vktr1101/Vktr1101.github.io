@@ -28,8 +28,8 @@
 @media (prefers-color-scheme: light){
   :root{
     /* păstrăm aceleași culori și în light mode ca să nu se inverseze */
-    --sidebar-bg:#222222;
-    --content-bg:#141414;
+    --sidebar-bg:#0E0122;
+    --content-bg:#1A191B;
     --text:#e8ecf1;
     --muted:#a9b3c0;
   }
