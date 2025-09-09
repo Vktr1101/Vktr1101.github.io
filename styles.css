@@ -1,20 +1,19 @@
-/* ====== Layout & Theme (v9) ====== */
+/* ====== Layout & Theme (v10) ====== */
 :root{
-  /* culori cerute */
-  --sidebar-bg: #161418;   /* stânga */
-  --content-bg: #292929;   /* dreapta (actualizat) */
+  --sidebar-bg: #161418;  /* stânga */
+  --content-bg: #493F5E;  /* dreapta */
 
   --text:#e8ecf1;
   --muted:#a9b3c0;
-  --brand:#6aa7ff;
-  --accent:#79e3c4;
 
-  /* structură */
-  --gap:16px;              /* spațiul între sidebar și conținut */
-  --sidebar-w:340px;       /* lățimea panoului stânga */
-  --page-pad:0px;          /* marginea față de muchiile paginii (0 = lipit) */
+  /* mov pentru accent/outlines */
+  --brand:#a855f7;  /* violet */
+  --accent:#a855f7;
 
-  /* tipografie fluidă */
+  --gap:16px;
+  --sidebar-w:340px;
+  --page-pad:0px;
+
   --fs-12:clamp(11px,.8vw,12px);
   --fs-14:clamp(12px,.9vw,14px);
   --fs-16:clamp(14px,1vw,16px);
@@ -27,11 +26,12 @@
 }
 @media (prefers-color-scheme: light){
   :root{
-    /* păstrăm aceleași culori și în light mode */
     --sidebar-bg:#161418;
-    --content-bg:#292929;
+    --content-bg:#493F5E;
     --text:#e8ecf1;
     --muted:#a9b3c0;
+    --brand:#a855f7;
+    --accent:#a855f7;
   }
 }
 
@@ -44,74 +44,58 @@ html{scroll-behavior:smooth}
 }
 body{
   margin:0; color:var(--text);
-  background:var(--content-bg);          /* fundal plin pe dreapta */
+  background:var(--content-bg);
   font:var(--fs-16)/1.65 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
 }
 
 /* ====== Layout full-bleed + sidebar fix ====== */
 .layout{
-  /* lăsăm spațiu pentru sidebar; full-bleed pe rest */
   padding: var(--page-pad);
   padding-left: calc(var(--sidebar-w) + var(--gap) + var(--page-pad));
 }
-
-/* Sidebar separat, fix, colțuri drepte */
 .sidebar{
-  position: fixed;
-  left: var(--page-pad);
-  top: var(--page-pad);
-  bottom: var(--page-pad);
-  width: var(--sidebar-w);
-  overflow: auto;
-
-  background: var(--sidebar-bg);
-  border: none;                 /* fără contur vizibil */
-  border-radius: 0;             /* colțuri drepte */
-  padding: 18px;
+  position: fixed; left: var(--page-pad); top: var(--page-pad); bottom: var(--page-pad);
+  width: var(--sidebar-w); overflow: auto; background: var(--sidebar-bg);
+  border: none; border-radius: 0; padding: 18px;
 }
-
-/* pe mobil: sidebarul devine static deasupra */
 @media (max-width: 900px){
   .layout{ padding: 14px; padding-left: 14px; }
-  .sidebar{
-    position: static; width: auto; left:auto; top:auto; bottom:auto;
-    overflow: visible; margin-bottom: var(--gap);
-  }
+  .sidebar{ position: static; width: auto; overflow: visible; margin-bottom: var(--gap); }
 }
 
 /* ====== Sidebar content ====== */
 .profile{display:grid; justify-items:center; gap:10px}
-.avatar{
-  width:160px; height:160px; border-radius:50%; object-fit:cover;
-  border:1px solid rgba(255,255,255,.08);
-}
+.avatar{ width:160px; height:160px; border-radius:50%; object-fit:cover; border:1px solid rgba(255,255,255,.08); }
 .name{margin:4px 0 0; font-size:var(--fs-36); line-height:1.1; letter-spacing:-.02em}
-.role{margin:0; color:var(--muted); font-size:var(--fs-14)}
-.edu{margin-top:6px; text-align:center; color:var(--muted); font-size:var(--fs-14); display:grid; gap:2px}
+/* puțin mai „gros” la linia 2 deja e bold în HTML; dacă vrei și mai mult, poți mări 700 */
+.role{margin:0; color:var(--text); font-size:var(--fs-14)}
+.edu{margin-top:6px; text-align:center; color:var(--muted); font-size:var(--fs-14); display:grid; gap:4px}
 
-/* vertical nav */
+/* meniu secțiuni - outline mov */
 .sidenav{margin-top:12px; width:100%; display:grid; gap:8px}
 .nav-link{
   display:block; width:100%; text-decoration:none; color:var(--text);
-  border:1px solid rgba(255,255,255,.10); border-radius:12px; padding:10px 12px;
+  border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:10px 12px;
   background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.10));
   text-align:center; font-size:var(--fs-14);
-  transition:transform .08s ease, border-color .2s ease, background-color .2s ease;
+  transition:transform .08s ease, border-color .2s ease, background-color .2s ease, box-shadow .2s ease;
 }
 .nav-link:hover{transform:translateY(-1px); border-color:var(--brand)}
-.nav-link.active{border-color:var(--brand); box-shadow:0 0 0 3px color-mix(in oklab, var(--brand) 20%, transparent)}
+.nav-link.active{border-color:var(--brand); box-shadow:0 0 0 3px color-mix(in oklab, var(--brand) 24%, transparent)}
 
 .links{margin-top:12px; display:flex; flex-wrap:wrap; gap:8px; justify-content:center}
+/* chips mov + bold */
 .pill{
-  font-size:var(--fs-12); padding:6px 10px; border:1px solid rgba(255,255,255,.10); border-radius:999px;
-  color:var(--text); text-decoration:none; background:rgba(255,255,255,.06);
+  font-size:var(--fs-12); font-weight:700; color:var(--brand);
+  padding:6px 10px; border:1px solid color-mix(in oklab, var(--brand) 40%, transparent); border-radius:999px;
+  text-decoration:none; background:rgba(255,255,255,.08);
 }
 .pill:hover{border-color:var(--brand)}
 
 .menu-toggle{
   display:none; margin-top:12px; width:100%;
-  border:1px solid rgba(255,255,255,.10); background:var(--sidebar-bg); color:var(--text);
+  border:1px solid rgba(255,255,255,.12); background:var(--sidebar-bg); color:var(--text);
   padding:10px 12px; border-radius:12px; font-size:var(--fs-14);
 }
 @media (max-width: 900px){
@@ -126,45 +110,14 @@ body{
 
 /* ====== Content (dreapta) – fără “casete” ====== */
 .content{display:grid; gap:24px}
-.card{
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-}
+.card{ background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; }
 .card h2{margin:0 0 10px; font:700 var(--fs-22)/1.25 ui-sans-serif; letter-spacing:.02em}
-.hl{color:var(--brand)}
+.hl{color:var(--text)}
 .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
-.tag{font-size:var(--fs-12); padding:6px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.06)}
-
+.tag{font-size:var(--fs-12); padding:6px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.10)}
 .meta{color:var(--muted); font-size:var(--fs-14); margin-top:4px}
 
-/* proiecte: separație discretă */
-.proj{padding:10px 0}
-.proj + .proj{border-top:1px dashed rgba(255,255,255,.10)}
-.proj-h{display:flex; flex-wrap:wrap; align-items:center; gap:8px; justify-content:space-between}
-.proj-h h3{margin:0; font-size:var(--fs-18)}
-.proj-links{display:flex; gap:10px}
-.proj-links a{text-decoration:none}
-.proj-links a:hover{text-decoration:underline}
-
-/* timeline experiență – fără casete, doar axă */
-.timeline{position:relative; display:grid; gap:18px; margin-top:6px}
-.tl-item{display:grid; grid-template-columns:20px 1fr; gap:10px; position:relative}
-.tl-dot{
-  width:12px; height:12px; border-radius:50%; margin-top:.5em;
-  background: radial-gradient(circle at 30% 30%, #fff 0 15%, var(--brand) 40% 100%);
-  border:1px solid color-mix(in oklab, var(--brand) 60%, var(--content-bg) 40%);
-  box-shadow:0 0 0 4px color-mix(in oklab, var(--brand) 16%, transparent);
-}
-.tl-item::after{
-  content:""; position:absolute; left:9px; top:1.6em; bottom:-8px; width:2px;
-  background: repeating-linear-gradient(to bottom, rgba(255,255,255,.15), rgba(255,255,255,.15) 6px, transparent 6px, transparent 12px);
-}
-.tl-item:last-child::after{display:none}
-.tl-content h3{margin:0 0 4px; font-size:var(--fs-18)}
-
-/* footer simplu */
+/* footer */
 .footer{color:var(--muted); font-size:var(--fs-14); text-align:center; margin-top:8px}
 
 /* ancore & links */
