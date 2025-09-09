@@ -1,30 +1,37 @@
-/* ====== Tokens & theming ====== */
+/* ====== Layout & Theme (v6) ====== */
 :root{
-  /* culori noi: panou stânga foarte închis, panou dreapta puțin mai deschis */
-  --sidebar-bg:#0b0c10;       /* aproape negru */
-  --content-bg:#141821;       /* gri-închis, un pic mai deschis decât stânga */
+  /* culorile cerute */
+  --sidebar-bg: #222222;   /* stânga */
+  --content-bg: #141414;   /* dreapta */
 
-  --text:#e8ecf1; --muted:#a9b3c0;
-  --brand:#6aa7ff; --accent:#79e3c4; --border:#1c2230;
-  --shadow:0 8px 40px rgba(0,0,0,.18);
+  --text:#e8ecf1; 
+  --muted:#a9b3c0;
+  --brand:#6aa7ff; 
+  --accent:#79e3c4;
 
-  --radius-lg:18px; --radius-md:12px; --radius-sm:10px;
-  --gap:20px;                   /* spațiu între sidebar și conținut */
-  --sidebar-w:340px;            /* lățimea panoului stânga */
-  --page-pad:0px;               /* margine față de muchiile paginii (0 = lipit) */
+  /* structură */
+  --gap:16px;              /* spațiul între sidebar și conținut */
+  --sidebar-w:340px;       /* lățimea panoului stânga */
+  --page-pad:0px;          /* marginea față de muchiile paginii (0 = lipit) */
 
-  --fs-12:clamp(11px,.8vw,12px); --fs-14:clamp(12px,.9vw,14px); --fs-16:clamp(14px,1vw,16px);
-  --fs-18:clamp(16px,1.2vw,18px); --fs-22:clamp(18px,1.6vw,22px); --fs-36:clamp(26px,5vw,36px);
-  color-scheme:dark; accent-color:var(--brand);
+  /* tipografie fluidă */
+  --fs-12:clamp(11px,.8vw,12px);
+  --fs-14:clamp(12px,.9vw,14px);
+  --fs-16:clamp(14px,1vw,16px);
+  --fs-18:clamp(16px,1.2vw,18px);
+  --fs-22:clamp(18px,1.6vw,22px);
+  --fs-36:clamp(26px,5vw,36px);
+
+  color-scheme: dark;
+  accent-color: var(--brand);
 }
 @media (prefers-color-scheme: light){
   :root{
-    --sidebar-bg:#0b0c10;  /* păstrăm contrastul dorit și în light, pentru consecvență */
-    --content-bg:#f3f6fb;  /* dacă preferi și aici dark, setează = #141821 */
-    --text:#0f1320; --muted:#536073;
-    --brand:#2b6cff; --accent:#17b890; --border:#e6ebf2;
-    --shadow:0 10px 30px rgba(26,38,61,.08);
-    color-scheme:light;
+    /* păstrăm aceleași culori și în light mode ca să nu se inverseze */
+    --sidebar-bg:#222222;
+    --content-bg:#141414;
+    --text:#e8ecf1;
+    --muted:#a9b3c0;
   }
 }
 
@@ -37,20 +44,19 @@ html{scroll-behavior:smooth}
 }
 body{
   margin:0; color:var(--text);
-  /* fundal plin, fără gradient – ca în site-ul model */
-  background:var(--content-bg);
+  background:var(--content-bg);          /* fundal plin pe dreapta */
   font:var(--fs-16)/1.65 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
   -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
 }
 
-/* ====== Layout full-width + sidebar fix ====== */
+/* ====== Layout full-bleed + sidebar fix ====== */
 .layout{
-  /* full-bleed pe dreapta, lăsăm spațiul pentru sidebar + un mic gutter */
+  /* lăsăm spațiu pentru sidebar; full-bleed pe rest */
   padding: var(--page-pad);
   padding-left: calc(var(--sidebar-w) + var(--gap) + var(--page-pad));
 }
 
-/* sidebar separat, fix, pe toată înălțimea */
+/* Sidebar separat, fix, colțuri drepte */
 .sidebar{
   position: fixed;
   left: var(--page-pad);
@@ -59,16 +65,15 @@ body{
   width: var(--sidebar-w);
   overflow: auto;
 
-  background:var(--sidebar-bg);
-  border:1px solid rgba(255,255,255,.04);
-  border-radius:var(--radius-lg);
-  padding:18px;
-  box-shadow:var(--shadow);
+  background: var(--sidebar-bg);
+  border: none;                 /* fără contur vizibil */
+  border-radius: 0;             /* colțuri drepte */
+  padding: 18px;
 }
 
-/* pe mobil: sidebarul devine static, deasupra; conținutul ocupă toată lățimea */
+/* pe mobil: sidebarul devine static deasupra */
 @media (max-width: 900px){
-  .layout{ padding: 14px }
+  .layout{ padding: 14px; padding-left: 14px; }
   .sidebar{
     position: static; width: auto; left:auto; top:auto; bottom:auto;
     overflow: visible; margin-bottom: var(--gap);
@@ -79,7 +84,7 @@ body{
 .profile{display:grid; justify-items:center; gap:10px}
 .avatar{
   width:160px; height:160px; border-radius:50%; object-fit:cover;
-  border:1px solid rgba(255,255,255,.06); box-shadow:0 4px 18px rgba(0,0,0,.25);
+  border:1px solid rgba(255,255,255,.06);
 }
 .name{margin:4px 0 0; font-size:var(--fs-36); line-height:1.1; letter-spacing:-.02em}
 .role{margin:0; color:var(--muted); font-size:var(--fs-14)}
@@ -119,19 +124,14 @@ body{
   .sidenav-mobile .nav-link{text-align:left}
 }
 
-/* ====== Content (dreapta) ====== */
-/* IMPORTANT: scoatem “casetele/cardurile” – conținutul stă direct pe background */
-.content{display:grid; gap:28px}
-
-/* cardurile devin transparente, fără border/umbră/padding */
+/* ====== Content (dreapta) – fără “casete” ====== */
+.content{display:grid; gap:24px}
 .card{
-  background:transparent !important;
-  border:none !important;
-  box-shadow:none !important;
-  padding:0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
 }
-
-/* heading-uri și elemente */
 .card h2{margin:0 0 10px; font:700 var(--fs-22)/1.25 ui-sans-serif; letter-spacing:.02em}
 .hl{color:var(--brand)}
 .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
@@ -139,7 +139,7 @@ body{
 
 .meta{color:var(--muted); font-size:var(--fs-14); margin-top:4px}
 
-/* proiecte – fără borduri de “casetă”; doar separație minimă între articole */
+/* proiecte: separație discretă */
 .proj{padding:10px 0}
 .proj + .proj{border-top:1px dashed rgba(255,255,255,.08)}
 .proj-h{display:flex; flex-wrap:wrap; align-items:center; gap:8px; justify-content:space-between}
@@ -148,7 +148,7 @@ body{
 .proj-links a{text-decoration:none}
 .proj-links a:hover{text-decoration:underline}
 
-/* timeline experiență – păstrăm punctele dar fără casete */
+/* timeline experiență – fără casete, doar axă */
 .timeline{position:relative; display:grid; gap:18px; margin-top:6px}
 .tl-item{display:grid; grid-template-columns:20px 1fr; gap:10px; position:relative}
 .tl-dot{
@@ -164,7 +164,7 @@ body{
 .tl-item:last-child::after{display:none}
 .tl-content h3{margin:0 0 4px; font-size:var(--fs-18)}
 
-/* footer simplu pe background */
+/* footer simplu */
 .footer{color:var(--muted); font-size:var(--fs-14); text-align:center; margin-top:8px}
 
 /* ancore & links */
