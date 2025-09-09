@@ -1,8 +1,8 @@
-/* ====== Layout & Theme (v8) ====== */
+/* ====== Layout & Theme (v9) ====== */
 :root{
   /* culori cerute */
   --sidebar-bg: #161418;   /* stânga */
-  --content-bg: #513F53;   /* dreapta */
+  --content-bg: #493F5E;   /* dreapta (actualizat) */
 
   --text:#e8ecf1;
   --muted:#a9b3c0;
@@ -29,7 +29,7 @@
   :root{
     /* păstrăm aceleași culori și în light mode */
     --sidebar-bg:#161418;
-    --content-bg:#513F53;
+    --content-bg:#493F5E;
     --text:#e8ecf1;
     --muted:#a9b3c0;
   }
