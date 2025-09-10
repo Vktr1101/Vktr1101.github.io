@@ -1,5 +1,5 @@
 :root{
-  --hero-title-size: clamp(80px, 14vw, 260px);
+  --hero-title-size: clamp(800px, 14vw, 3000px);
   --sidebar-bg:#161418;
   --content-bg:#232323;
   --text:#e8ecf1;
