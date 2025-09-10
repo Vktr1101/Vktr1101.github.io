@@ -28,8 +28,8 @@
   --icon-size: 42px;
   --label-size: clamp(14px, 1.15vw, 18px);
 
-  --skills-col-gap: 22px;
-  --skills-row-gap: 16px;
+  --skills-col-gap: 20px;
+  --skills-row-gap: 14px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -178,19 +178,42 @@ body {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 16px;
+  gap: 18px;
   max-width: min(120ch, 86vw);
   margin-left: clamp(16px, 2.5vw, 40px);
+  font-size: clamp(20px, 1.8vw, 24px);
+  font-weight: 700;
 }
 
-.hero-bullets li { position: relative; padding-left: 1.8em; font-size: clamp(18px, 1.6vw, 22px); font-weight: 700; }
-.hero-bullets li::before { content: "◆"; position: absolute; left: 0; top: 0.1em; font-size: 1.1em; line-height: 1; color: var(--brand); filter: drop-shadow(0 0 2px rgba(168, 85, 247, 0.4)); }
+.hero-bullets li {
+  position: relative;
+  padding-left: 1.8em;
+}
+.hero-bullets li::before {
+  content: "◆";
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  font-size: 1.1em;
+  line-height: 1;
+  color: var(--brand);
+  filter: drop-shadow(0 0 2px rgba(168, 85, 247, 0.4));
+}
 
 #skills { padding-bottom: var(--section-gap-extra); }
 
+.section-rule {
+  height: 4px;
+  width: min(1200px, 86vw);
+  background: linear-gradient(90deg, var(--brand), rgba(168, 85, 247, 0));
+  border-radius: 999px;
+  margin: 12px 0 40px 0;
+}
+.section-skills { margin-bottom: 140px; }
+
 .skills-grid {
   list-style: none;
-  margin: 10px 0 0;
+  margin: 0;
   padding: 0;
   display: grid;
   grid-template-columns: repeat(7, minmax(120px, 1fr));
