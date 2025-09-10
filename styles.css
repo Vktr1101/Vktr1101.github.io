@@ -2,20 +2,24 @@
   --accent: #a855f7;
   --brand: #a855f7;
   --content-bg: #232323;
-  --gap: 24px; /* mai aproape de sidebar */
+  --gap: 24px;
   --hero-title-size: clamp(32px, 9.5vw, 56px);
   --muted: #a9b3c0;
   --page-pad: 0px;
   --sidebar-bg: #161418;
-  --sidebar-w: 360px;
+  --sidebar-w: 335px; /* ← mai îngust */
   --text: #e8ecf1;
+
   --fs-12: clamp(11px, 0.8vw, 12px);
   --fs-13: clamp(12px, 0.9vw, 13px);
   --fs-14: clamp(12px, 1vw, 14px);
   --fs-16: clamp(13px, 1vw, 16px);
   --fs-18: clamp(15px, 1.1vw, 18px);
   --fs-22: clamp(18px, 1.6vw, 22px);
-  --fs-36: clamp(24px, 4.2vw, 32px); /* numele un pic mai mic */
+  --fs-36: clamp(24px, 4.2vw, 32px);
+
+  --section-gap: 36px;        /* distanța standard între secțiuni */
+  --section-gap-extra: 28px;  /* extra pentru About→Skills și Skills→Education */
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -61,14 +65,14 @@ body {
   .sidebar { position: static; width: auto; overflow: visible; margin-bottom: var(--gap); }
 }
 
-/* Sidebar tipografie (mai mică), pill-urile neschimbate */
+/* Sidebar tipografie (mai mică), pills neschimbate */
 .profile { display: grid; justify-items: center; gap: 12px; }
 .avatar { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255, 255, 255, 0.08); }
-.name { margin: 6px 0 0; font-size: var(--fs-36); line-height: 1.1; letter-spacing: -0.02em; }
-.role { margin: 0; color: var(--text); font-size: var(--fs-16); }
-.edu  { margin-top: 8px; text-align: center; color: var(--muted); font-size: var(--fs-13); display: grid; gap: 6px; }
+.name   { margin: 6px 0 0; font-size: var(--fs-36); line-height: 1.1; letter-spacing: -0.02em; }
+.role   { margin: 0; color: var(--text); font-size: var(--fs-16); }
+.edu    { margin-top: 8px; text-align: center; color: var(--muted); font-size: var(--fs-13); display: grid; gap: 6px; }
 
-.sidenav { margin-top: 14px; width: 100%; display: grid; gap: 16px; } /* mai mult spațiu între item-uri */
+.sidenav { margin-top: 14px; width: 100%; display: grid; gap: 16px; }
 .nav-link {
   display: block;
   width: 100%;
@@ -79,7 +83,7 @@ body {
   padding: 10px 12px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.12));
   text-align: center;
-  font-size: clamp(14px, 1.2vw, 18px); /* puțin mai mic */
+  font-size: clamp(14px, 1.2vw, 18px);
   transition: transform 0.08s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, font-weight 0.1s ease;
 }
 .nav-link:hover { transform: translateY(-1px); border-color: var(--brand); }
@@ -91,7 +95,7 @@ body {
 .pill {
   display: block;
   text-align: center;
-  font-size: var(--fs-12); /* lăsăm ca înainte */
+  font-size: var(--fs-12);
   font-weight: 700;
   color: var(--brand);
   padding: 10px 12px;
@@ -131,16 +135,16 @@ body {
 
 .content {
   display: grid;
-  gap: 48px;
+  gap: var(--section-gap);
   padding-top: 24px;
-  padding-left: clamp(8px, 1vw, 16px);  /* titlul mai aproape de sidebar */
+  padding-left: clamp(8px, 1vw, 16px);
   padding-right: clamp(40px, 6vw, 120px);
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 .card { background: transparent; border: none; box-shadow: none; padding: 0; }
 
-/* Titluri secțiuni mai mari (Education, Skills) */
+/* Titluri secțiuni mai mari */
 .card h2:not(.hero-title) {
   margin: 0 0 12px;
   font-weight: 700;
@@ -152,7 +156,7 @@ body {
 .card p { margin: 0 0 12px; }
 
 /* About */
-#about { padding-left: 0; } /* fără indent: aliniat cu textele din meniu */
+#about { padding-left: 0; padding-bottom: var(--section-gap-extra); } /* extra spațiu spre Skills */
 .hero-title {
   font-size: var(--hero-title-size);
   line-height: 1.05;
@@ -169,7 +173,7 @@ body {
   margin: 10px 0 18px 0;
 }
 
-/* bullets mai late și ușor mai spre dreapta */
+/* bullets mai late și ușor spre dreapta */
 .hero-bullets {
   list-style: none;
   margin: 18px 0 0;
@@ -197,6 +201,47 @@ body {
   color: var(--brand);
   filter: drop-shadow(0 0 2px rgba(168, 85, 247, 0.4));
 }
+
+/* Skills */
+#skills { padding-bottom: var(--section-gap-extra); } /* extra spațiu spre Education */
+
+.skills-grid {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(88px, 1fr));
+  gap: 18px 24px;
+  max-width: 860px;
+}
+
+.skill {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.badge {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  box-shadow: 0 6px 16px rgba(0,0,0,.25), inset 0 0 0 1px rgba(255,255,255,.12);
+}
+
+.badge.cpp    { background:#00599C; }
+.badge.bash   { background:#3e4348; }
+.badge.html   { background:#e34f26; }
+.badge.css    { background:#1572B6; }
+.badge.js     { background:#f7df1e; color:#111; }
+.badge.python { background:#3776ab; }
+.badge.asm    { background:#6b7280; }
+
+.label { font-size: var(--fs-14); color: var(--text); }
 
 .hl { color: var(--text); }
 .meta { color: var(--muted); font-size: var(--fs-14); margin-top: 6px; }
