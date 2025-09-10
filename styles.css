@@ -1,4 +1,5 @@
 :root{
+  --hero-title-size: clamp(80px, 14vw, 260px);
   --sidebar-bg:#161418;
   --content-bg:#232323;
   --text:#e8ecf1;
@@ -13,21 +14,9 @@
   --fs-16:clamp(14px,1vw,16px);
   --fs-18:clamp(16px,1.2vw,18px);
   --fs-22:clamp(18px,1.6vw,22px);
-  --fs-36:clamp(26px,5vw,36px);
-  color-scheme:dark;
-  accent-color:var(--brand);
+  --fs-36:clamp(26px,5vw,36px)
 }
-@media (prefers-color-scheme: light){
-  :root{
-    --sidebar-bg:#161418;
-    --content-bg:#232323;
-    --text:#e8ecf1;
-    --muted:#a9b3c0;
-    --brand:#a855f7;
-    --accent:#a855f7;
-  }
-}
-*{box-sizing:border-box}
+*,:after,:before{box-sizing:border-box}
 html,body{height:100%}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){
@@ -38,16 +27,16 @@ body{
   margin:0;color:var(--text);
   background:var(--content-bg);
   font:var(--fs-16)/1.65 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
-  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale
 }
 .layout{
   padding:var(--page-pad);
-  padding-left:calc(var(--sidebar-w) + var(--gap) + var(--page-pad));
+  padding-left:calc(var(--sidebar-w) + var(--gap) + var(--page-pad))
 }
 .sidebar{
   position:fixed;left:var(--page-pad);top:var(--page-pad);bottom:var(--page-pad);
   width:var(--sidebar-w);overflow:auto;background:var(--sidebar-bg);
-  border:none;border-radius:0;padding:18px;
+  border:none;border-radius:0;padding:18px
 }
 @media (max-width: 900px){
   .layout{padding:18px;padding-left:18px}
@@ -69,12 +58,8 @@ body{
 }
 .nav-link:hover{transform:translateY(-1px);border-color:var(--brand)}
 .nav-link.active{font-weight:700;border-color:var(--brand);box-shadow:0 0 0 3px color-mix(in oklab,var(--brand) 24%,transparent)}
-.links{
-  margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px
-}
-@media (max-width:460px){
-  .links{grid-template-columns:1fr}
-}
+.links{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:460px){.links{grid-template-columns:1fr}}
 .pill{
   display:block;text-align:center;font-size:var(--fs-12);font-weight:700;color:var(--brand);
   padding:10px 12px;border:1px solid color-mix(in oklab,var(--brand) 40%,transparent);border-radius:999px;
@@ -110,25 +95,10 @@ body{
   line-height:1.25;
   font-family:Cambria,Cochin,Georgia,Times,"Times New Roman",serif
 }
-.hero-title{
-  font-size:clamp(160px,22vw,480px);
-  line-height:1.02;
-  letter-spacing:-.012em;
-  margin-top:24px;
-  margin-bottom:14px
-}
-.card h2.hero-title{
-  font-size:clamp(260px,36vw,720px)!important;
-  line-height:1!important;
-  margin-top:32px;
-  margin-bottom:18px
-}
+.card p{margin:0 0 12px}
 .hero-bullets{
-  margin:12px 0 0 0;
-  padding-left:0;
-  display:grid;
-  gap:12px;
-  list-style:none
+  list-style:none;margin:12px 0 0;padding:0;display:grid;gap:10px;
+  max-width:80ch
 }
 .hero-bullets li{
   position:relative;
@@ -156,4 +126,11 @@ a:hover{text-decoration-color:currentColor}
   body{background:#fff}
   .sidebar{display:none}
   .layout{padding:0}
+}
+.hero-title{
+  font-size:var(--hero-title-size);
+  line-height:1.05;
+  letter-spacing:-.012em;
+  margin-top:24px;
+  margin-bottom:14px
 }
