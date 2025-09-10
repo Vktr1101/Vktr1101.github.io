@@ -148,21 +148,32 @@ body {
 
 .card p { margin: 0 0 12px; }
 
+#about { padding-left: clamp(8px, 2vw, 32px); }
+
 .hero-title {
   font-size: var(--hero-title-size);
   line-height: 1.05;
   letter-spacing: -0.012em;
   margin-top: 24px;
-  margin-bottom: 14px;
+  margin-bottom: 8px;
+}
+
+.hero-rule {
+  height: 4px;
+  width: min(1200px, 82vw);
+  background: linear-gradient(90deg, var(--brand), rgba(168, 85, 247, 0));
+  border-radius: 999px;
+  margin: 6px 0 16px 0;
 }
 
 .hero-bullets {
   list-style: none;
-  margin: 12px 0 0;
+  margin: 18px 0 0;
   padding: 0;
   display: grid;
-  gap: 10px;
-  max-width: 80ch;
+  gap: 12px;
+  max-width: min(100ch, 78vw);
+  margin-left: clamp(8px, 2vw, 32px);
 }
 
 .hero-bullets li {
