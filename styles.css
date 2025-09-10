@@ -167,6 +167,7 @@ body {
 
 #about { padding-left: 0; padding-bottom: var(--section-gap-extra); }
 .hero-title { font-size: var(--hero-title-size); line-height: 1.05; letter-spacing: -0.012em; margin: 0 0 10px 0; }
+
 .hero-rule {
   height: 4px;
   width: min(1200px, 86vw);
@@ -183,7 +184,7 @@ body {
   gap: 18px;
   max-width: min(120ch, 86vw);
   margin-left: clamp(16px, 2.5vw, 40px);
-  font-size: clamp(20px, 1.8vw, 24px);
+  font-size: clamp(22px, 2.4vw, 36px); /* 22–36px */
   font-weight: 700;
 }
 
@@ -209,7 +210,8 @@ body {
   margin: 12px 0 var(--title-gap) 0;
 }
 
-.section-skills { margin-bottom: var(--title-gap); }
+/* sub Tech Skills exact 30% mai mic decât --title-gap */
+.section-skills { margin-bottom: calc(var(--title-gap) * 0.7); }
 
 .skills-grid {
   list-style: none;
