@@ -64,7 +64,7 @@ body{
   border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:12px 14px;
   background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(0,0,0,.12));
   text-align:center;
-  font-size:clamp(15px,1.2vw,18px);
+  font-size:clamp(16px,1.35vw,20px);
   transition:transform .08s ease,border-color .2s ease,background-color .2s ease,box-shadow .2s ease,font-weight .1s ease
 }
 .nav-link:hover{transform:translateY(-1px);border-color:var(--brand)}
@@ -117,6 +117,12 @@ body{
   margin-top:24px;
   margin-bottom:14px
 }
+.card h2.hero-title{
+  font-size:clamp(260px,36vw,720px)!important;
+  line-height:1!important;
+  margin-top:32px;
+  margin-bottom:18px
+}
 .hero-bullets{
   margin:12px 0 0 0;
   padding-left:0;
@@ -151,11 +157,3 @@ a:hover{text-decoration-color:currentColor}
   .sidebar{display:none}
   .layout{padding:0}
 }
-
-.card h2.hero-title{
-  font-size: clamp(240px, 34vw, 640px) !important;
-  line-height: 1 !important;
-  margin-top: 32px;
-  margin-bottom: 18px;
-}
-
