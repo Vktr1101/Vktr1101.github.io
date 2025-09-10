@@ -3,7 +3,7 @@
   --brand: #a855f7;
   --content-bg: #232323;
   --gap: 36px;
-  --hero-title-size: clamp(200px, 28vw, 1000px);
+  --hero-title-size: clamp(64px, 9.5vw, 160px);
   --muted: #a9b3c0;
   --page-pad: 0px;
   --sidebar-bg: #161418;
