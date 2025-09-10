@@ -151,3 +151,11 @@ a:hover{text-decoration-color:currentColor}
   .sidebar{display:none}
   .layout{padding:0}
 }
+
+.card h2.hero-title{
+  font-size: clamp(240px, 34vw, 640px) !important;
+  line-height: 1 !important;
+  margin-top: 32px;
+  margin-bottom: 18px;
+}
+
