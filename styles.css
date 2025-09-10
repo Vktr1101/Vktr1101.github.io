@@ -184,7 +184,7 @@ body {
   gap: 18px;
   max-width: min(120ch, 86vw);
   margin-left: clamp(16px, 2.5vw, 40px);
-  font-size: clamp(12px, 2.4vw, 28px); 
+  font-size: clamp(18px, 2.4vw, 28px); 
   font-weight: 700;
 }
 
