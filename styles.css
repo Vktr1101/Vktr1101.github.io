@@ -9,7 +9,11 @@
   --page-top:clamp(140px,17.5vh,240px);
   --nav-gap:28px;
   --section-gap:96px;
-  --section-gap-extra:140px
+  --section-gap-extra:140px;
+
+  --badge-size:72px;
+  --icon-size:42px;
+  --label-size:clamp(14px,1.2vw,18px);
 }
 *,*::before,*::after{box-sizing:border-box}
 html,body{height:100%}
@@ -41,6 +45,7 @@ body{margin:0;background:var(--content-bg);color:var(--text);font-family:ui-sans
 
 .content{display:grid;gap:var(--section-gap);padding-top:var(--page-top);padding-left:clamp(8px,1vw,16px);padding-right:clamp(40px,6vw,120px);font-family:Cambria,Cochin,Georgia,Times,"Times New Roman",serif}
 .card{background:transparent;border:none;box-shadow:none;padding:0}
+
 .card h2:not(.hero-title){margin:0 0 12px;font-weight:700;font-size:clamp(26px,2.6vw,36px);line-height:1.2;font-family:Cambria,Cochin,Georgia,Times,"Times New Roman",serif}
 .card p{margin:0 0 12px}
 
@@ -48,24 +53,37 @@ body{margin:0;background:var(--content-bg);color:var(--text);font-family:ui-sans
 #about{padding-left:0;padding-bottom:var(--section-gap-extra)}
 .hero-title{font-size:var(--hero-title-size);line-height:1.05;letter-spacing:-.012em;margin:0 0 10px 0}
 .hero-rule{height:4px;width:min(1200px,86vw);background:linear-gradient(90deg,var(--brand),rgba(168,85,247,0));border-radius:999px;margin:14px 0 80px 0}
+
 .hero-bullets{list-style:none;margin:0;padding:0;display:grid;gap:16px;max-width:min(120ch,86vw);margin-left:clamp(16px,2.5vw,40px)}
 .hero-bullets li{position:relative;padding-left:1.8em;font-size:clamp(18px,1.6vw,22px);font-weight:700}
 .hero-bullets li::before{content:"◆";position:absolute;left:0;top:.1em;font-size:1.1em;line-height:1;color:var(--brand);filter:drop-shadow(0 0 2px rgba(168,85,247,.4))}
 
 /* SKILLS */
 #skills{padding-bottom:var(--section-gap-extra)}
-.skills-grid{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:22px 28px;max-width:980px}
-.skill{display:grid;justify-items:center;gap:8px;text-align:center}
-.badge{width:72px;height:72px;border-radius:18px;display:grid;place-items:center;font-weight:800;letter-spacing:-.02em;box-shadow:0 6px 16px rgba(0,0,0,.25),inset 0 0 0 1px rgba(255,255,255,.12)}
-.icon{width:36px;height:36px}
-.badge.cpp{background:#00599C}.badge.bash{background:#3e4348}.badge.html{background:#e34f26}.badge.css{background:#1572B6}.badge.js{background:#f7df1e;color:#111}.badge.python{background:#3776ab}.badge.asm{background:#6b7280}
 
-/* al doilea rând cu imagini */
-.skills-grid.logos{margin-top:22px}
-.logo-badge{width:72px;height:72px;border-radius:18px;display:grid;place-items:center;background:rgba(255,255,255,.06);box-shadow:0 6px 16px rgba(0,0,0,.25),inset 0 0 0 1px rgba(255,255,255,.1)}
-.skill-logo{max-width:42px;max-height:42px;display:block}
+/* fiecare rând are 4 coloane, astfel aliniem vertical cu rândul de sus */
+.skills-row{
+  list-style:none;margin:10px 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(4,minmax(120px,1fr));gap:24px 32px;max-width:980px;
+}
 
-.label{font-size:var(--fs-14);color:var(--text)}
+.skill{display:grid;justify-items:center;gap:10px;text-align:center}
+.badge{
+  width:var(--badge-size);height:var(--badge-size);
+  border-radius:18px;display:grid;place-items:center;
+  background:var(--brand); /* fundal MOV pentru toate */
+  box-shadow:0 6px 16px rgba(0,0,0,.25), inset 0 0 0 1px rgba(255,255,255,.12);
+}
+.skill-logo{max-width:var(--icon-size);max-height:var(--icon-size);display:block;object-fit:contain}
+
+.label{
+  font-size:var(--label-size);
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.03em;
+  color:var(--text);
+}
+
 .hl{color:var(--text)}
 .meta{color:var(--muted);font-size:var(--fs-14);margin-top:6px}
 .footer{color:var(--muted);font-size:var(--fs-14);text-align:center;margin-top:8px}
