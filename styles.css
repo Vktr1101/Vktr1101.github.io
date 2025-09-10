@@ -2,7 +2,7 @@
   --accent: #a855f7;
   --brand: #a855f7;
   --content-bg: #232323;
-  --gap: 36px;
+  --gap: 24px; /* mai aproape de sidebar */
   --hero-title-size: clamp(32px, 9.5vw, 56px);
   --muted: #a9b3c0;
   --page-pad: 0px;
@@ -10,11 +10,12 @@
   --sidebar-w: 360px;
   --text: #e8ecf1;
   --fs-12: clamp(11px, 0.8vw, 12px);
-  --fs-14: clamp(12px, 0.9vw, 14px);
-  --fs-16: clamp(14px, 1vw, 16px);
-  --fs-18: clamp(16px, 1.2vw, 18px);
+  --fs-13: clamp(12px, 0.9vw, 13px);
+  --fs-14: clamp(12px, 1vw, 14px);
+  --fs-16: clamp(13px, 1vw, 16px);
+  --fs-18: clamp(15px, 1.1vw, 18px);
   --fs-22: clamp(18px, 1.6vw, 22px);
-  --fs-36: clamp(26px, 5vw, 36px);
+  --fs-36: clamp(24px, 4.2vw, 32px); /* numele un pic mai mic */
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -60,13 +61,14 @@ body {
   .sidebar { position: static; width: auto; overflow: visible; margin-bottom: var(--gap); }
 }
 
+/* Sidebar tipografie (mai mică), pill-urile neschimbate */
 .profile { display: grid; justify-items: center; gap: 12px; }
 .avatar { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255, 255, 255, 0.08); }
 .name { margin: 6px 0 0; font-size: var(--fs-36); line-height: 1.1; letter-spacing: -0.02em; }
-.role { margin: 0; color: var(--text); font-size: var(--fs-18); }
-.edu { margin-top: 8px; text-align: center; color: var(--muted); font-size: var(--fs-14); display: grid; gap: 6px; }
+.role { margin: 0; color: var(--text); font-size: var(--fs-16); }
+.edu  { margin-top: 8px; text-align: center; color: var(--muted); font-size: var(--fs-13); display: grid; gap: 6px; }
 
-.sidenav { margin-top: 14px; width: 100%; display: grid; gap: 10px; }
+.sidenav { margin-top: 14px; width: 100%; display: grid; gap: 16px; } /* mai mult spațiu între item-uri */
 .nav-link {
   display: block;
   width: 100%;
@@ -74,10 +76,10 @@ body {
   color: var(--brand);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 14px;
-  padding: 12px 14px;
+  padding: 10px 12px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.12));
   text-align: center;
-  font-size: clamp(16px, 1.35vw, 20px);
+  font-size: clamp(14px, 1.2vw, 18px); /* puțin mai mic */
   transition: transform 0.08s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease, font-weight 0.1s ease;
 }
 .nav-link:hover { transform: translateY(-1px); border-color: var(--brand); }
@@ -89,7 +91,7 @@ body {
 .pill {
   display: block;
   text-align: center;
-  font-size: var(--fs-12);
+  font-size: var(--fs-12); /* lăsăm ca înainte */
   font-weight: 700;
   color: var(--brand);
   padding: 10px 12px;
@@ -129,51 +131,53 @@ body {
 
 .content {
   display: grid;
-  gap: 40px;
-  padding-top: 32px;
-  padding-left: clamp(12px, 2vw, 28px);
+  gap: 48px;
+  padding-top: 24px;
+  padding-left: clamp(8px, 1vw, 16px);  /* titlul mai aproape de sidebar */
   padding-right: clamp(40px, 6vw, 120px);
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 .card { background: transparent; border: none; box-shadow: none; padding: 0; }
 
+/* Titluri secțiuni mai mari (Education, Skills) */
 .card h2:not(.hero-title) {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   font-weight: 700;
-  font-size: var(--fs-22);
-  line-height: 1.25;
+  font-size: clamp(26px, 2.6vw, 36px);
+  line-height: 1.2;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 .card p { margin: 0 0 12px; }
 
-#about { padding-left: clamp(8px, 2vw, 32px); }
-
+/* About */
+#about { padding-left: 0; } /* fără indent: aliniat cu textele din meniu */
 .hero-title {
   font-size: var(--hero-title-size);
   line-height: 1.05;
   letter-spacing: -0.012em;
-  margin-top: 24px;
+  margin-top: 8px;
   margin-bottom: 8px;
 }
 
 .hero-rule {
   height: 4px;
-  width: min(1200px, 82vw);
+  width: min(1200px, 86vw);
   background: linear-gradient(90deg, var(--brand), rgba(168, 85, 247, 0));
   border-radius: 999px;
-  margin: 6px 0 16px 0;
+  margin: 10px 0 18px 0;
 }
 
+/* bullets mai late și ușor mai spre dreapta */
 .hero-bullets {
   list-style: none;
   margin: 18px 0 0;
   padding: 0;
   display: grid;
-  gap: 12px;
-  max-width: min(100ch, 78vw);
-  margin-left: clamp(8px, 2vw, 32px);
+  gap: 14px;
+  max-width: min(120ch, 86vw);
+  margin-left: clamp(16px, 2.5vw, 40px);
 }
 
 .hero-bullets li {
