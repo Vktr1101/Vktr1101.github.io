@@ -63,7 +63,8 @@ body{
   display:block;width:100%;text-decoration:none;color:var(--brand);
   border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:12px 14px;
   background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(0,0,0,.12));
-  text-align:center;font-size:var(--fs-14);
+  text-align:center;
+  font-size:clamp(15px,1.2vw,18px);
   transition:transform .08s ease,border-color .2s ease,background-color .2s ease,box-shadow .2s ease,font-weight .1s ease
 }
 .nav-link:hover{transform:translateY(-1px);border-color:var(--brand)}
@@ -102,8 +103,15 @@ body{
   font-family:Cambria,Cochin,Georgia,Times,"Times New Roman",serif
 }
 .card{background:transparent!important;border:none!important;box-shadow:none!important;padding:0!important}
+.card h2{
+  margin:0 0 10px;
+  font-weight:700;
+  font-size:var(--fs-22);
+  line-height:1.25;
+  font-family:Cambria,Cochin,Georgia,Times,"Times New Roman",serif
+}
 .hero-title{
-  font-size:clamp(320px, 36vw, 720px);
+  font-size:clamp(160px,22vw,480px);
   line-height:1.02;
   letter-spacing:-.012em;
   margin-top:24px;
@@ -119,7 +127,7 @@ body{
 .hero-bullets li{
   position:relative;
   padding-left:1.8em;
-  font-size:clamp(18px,1.8vw,22px);
+  font-size:clamp(18px,1.6vw,22px);
   font-weight:700
 }
 .hero-bullets li::before{
@@ -132,7 +140,6 @@ body{
   color:var(--brand);
   filter:drop-shadow(0 0 2px rgba(168,85,247,.4))
 }
-.card h2{margin:0 0 10px;font:700 var(--fs-22)/1.25 Cambria,Cochin,Georgia,Times,"Times New Roman",serif}
 .hl{color:var(--text)}
 .meta{color:var(--muted);font-size:var(--fs-14);margin-top:6px}
 .footer{color:var(--muted);font-size:var(--fs-14);text-align:center;margin-top:8px}
