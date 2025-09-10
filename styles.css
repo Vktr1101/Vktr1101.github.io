@@ -18,7 +18,7 @@
   --fs-22: clamp(18px, 1.6vw, 22px);
   --fs-36: clamp(24px, 4.2vw, 32px);
 
-  --page-top: clamp(140px, 17.5vh, 240px);
+  --page-top: clamp(105px, 13vh, 180px);
   --nav-gap: 16px;
 
   --section-gap: 96px;
@@ -30,6 +30,8 @@
 
   --skills-col-gap: 20px;
   --skills-row-gap: 14px;
+
+  --title-gap: 80px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -170,7 +172,7 @@ body {
   width: min(1200px, 86vw);
   background: linear-gradient(90deg, var(--brand), rgba(168, 85, 247, 0));
   border-radius: 999px;
-  margin: 14px 0 80px 0;
+  margin: 14px 0 var(--title-gap) 0;
 }
 
 .hero-bullets {
@@ -185,10 +187,7 @@ body {
   font-weight: 700;
 }
 
-.hero-bullets li {
-  position: relative;
-  padding-left: 1.8em;
-}
+.hero-bullets li { position: relative; padding-left: 1.8em; }
 .hero-bullets li::before {
   content: "◆";
   position: absolute;
@@ -207,9 +206,10 @@ body {
   width: min(1200px, 86vw);
   background: linear-gradient(90deg, var(--brand), rgba(168, 85, 247, 0));
   border-radius: 999px;
-  margin: 12px 0 40px 0;
+  margin: 12px 0 var(--title-gap) 0;
 }
-.section-skills { margin-bottom: 140px; }
+
+.section-skills { margin-bottom: var(--title-gap); }
 
 .skills-grid {
   list-style: none;
