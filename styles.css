@@ -211,7 +211,7 @@ body {
   padding: 0;
 }
 
-.card h2 {
+.card h2:not(.hero-title) {
   margin: 0 0 10px;
   font-weight: 700;
   font-size: var(--fs-22);
