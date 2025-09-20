@@ -33,8 +33,8 @@
 
   --title-gap: 80px;
 
-  --badge-bg: #232140;   /* nou: culoarea implicită a casetelor */
-  --badge-hover: #a855f7;/* nou: culoarea la hover */
+  --badge-bg: #232140;   
+  --badge-hover: #a855f7;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -187,7 +187,7 @@ body {
   gap: 18px;
   max-width: min(120ch, 86vw);
   margin-left: clamp(16px, 2.5vw, 40px);
-  font-size: clamp(14px, 2.4vw, 30px);
+  font-size: clamp(16px, 2.4vw, 30px);
   font-weight: 700;
 }
 
@@ -227,7 +227,7 @@ body {
 
 .skill { display: grid; justify-items: center; gap: 10px; text-align: center; }
 
-/* badge: culoare implicită / tranziție / hover */
+
 .badge {
   width: var(--badge-size);
   height: var(--badge-size);
@@ -239,7 +239,7 @@ body {
   transition: background-color .22s ease, transform .12s ease, box-shadow .18s ease;
 }
 
-/* la hover pe întreaga celulă, schimbăm background-ul */
+
 .skill:hover .badge,
 .badge:hover {
   background: var(--badge-hover);
@@ -255,7 +255,7 @@ body {
   transition: filter .18s ease;
 }
 
-/* opțional: la hover luminează puțin imaginea dacă vrei */
+
 .skill:hover .skill-logo,
 .badge:hover .skill-logo {
   filter: drop-shadow(0 6px 12px rgba(168,85,247,0.18));
