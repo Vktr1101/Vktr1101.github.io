@@ -291,12 +291,19 @@ body {
 }
 
 /* buton Github */
-.project-actions { margin-top: 6px; display: flex; justify-content: flex-start; }
+.project-actions {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;  /* << butoanele unul sub altul */
+  gap: 12px;               /* spațiu între butoane */
+}
+
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  justify-self: start;
+  justify-content: center;
+  width: 100%;        /* << butonul ocupă toată lățimea cardului */
   height: var(--btn-h);
   padding: 0 calc(var(--btn-pad-x) + 6px);
   border-radius: 12px;
@@ -309,6 +316,7 @@ body {
   box-shadow: 0 10px 22px rgba(168,85,247,0.28);
   transition: background-color .2s ease, transform .15s ease, box-shadow .2s ease, opacity .18s ease;
 }
+
 .btn-primary:hover {
   background: var(--btn-bg-hover);
   transform: translateY(-2px);
