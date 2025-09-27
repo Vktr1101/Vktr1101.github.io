@@ -1,9 +1,8 @@
-// links din meniuri
+// colectare link-uri pentru active state în nav
 const links = Array.from(document.querySelectorAll('.sidenav .nav-link, #sidenav-mobile .nav-link'))
   .filter(a => a.hash && document.querySelector(a.hash));
 
 const sections = links.map(a => document.querySelector(a.hash));
-
 const setActive = (hash) => {
   document.querySelectorAll('.nav-link.active').forEach(el => el.classList.remove('active'));
   document.querySelectorAll(`.nav-link[href="${hash}"]`).forEach(el => el.classList.add('active'));
@@ -41,7 +40,7 @@ if (menuToggle && mobileNav) {
   });
 }
 
-// toggle pentru chips din Projects
+// TOGGLE pentru chips (fundal #232140 -> #a855f7)
 document.querySelectorAll('.pill-toggle').forEach(btn => {
   btn.addEventListener('click', () => {
     const active = btn.classList.toggle('is-active');
