@@ -10,6 +10,7 @@
 </head>
 <body>
   <div class="layout">
+    <!-- Sidebar -->
     <aside class="sidebar" aria-label="Profile and navigation">
       <div class="profile">
         <img src="avatar.jpg" alt="Victor Ilie profile photo" class="avatar" />
@@ -48,7 +49,9 @@
       </nav>
     </aside>
 
+    <!-- Main Content -->
     <main class="content">
+      <!-- About -->
       <section id="about" class="card">
         <h2 class="hero-title">Hi, my name is <span class="hl">Victor</span>!</h2>
         <div class="hero-rule"></div>
@@ -59,20 +62,80 @@
         </ul>
       </section>
 
+      <!-- Skills -->
       <section id="skills" class="card">
         <h2>Tech Skills</h2>
         <div class="section-rule section-skills"></div>
+
         <ul class="skills-grid">
-          <!-- skill icons deja definite aici -->
+          <li class="skill">
+            <div class="badge"><img class="skill-logo" src="Icons/cpp-modified.png" alt="C++"></div>
+            <span class="label">C++</span>
+          </li>
+
+          <li class="skill">
+            <div class="badge"><img class="skill-logo" src="Icons/bash.png" alt="Bash"></div>
+            <span class="label">BASH</span>
+          </li>
+
+          <li class="skill">
+            <div class="badge"><img class="skill-logo" src="Icons/html-modified.png" alt="HTML"></div>
+            <span class="label">HTML</span>
+          </li>
+
+          <li class="skill">
+            <div class="badge"><img class="skill-logo" src="Icons/css-modified.png" alt="CSS"></div>
+            <span class="label">CSS</span>
+          </li>
+
+          <li class="skill">
+            <div class="badge"><img class="skill-logo" src="Icons/javascript-modified.png" alt="JavaScript"></div>
+            <span class="label">JAVASCRIPT</span>
+          </li>
+
+          <li class="skill">
+            <div class="badge"><img class="skill-logo" src="Icons/python-modified.png" alt="Python"></div>
+            <span class="label">PYTHON</span>
+          </li>
+
+          <li class="skill">
+            <div class="badge"><img class="skill-logo" src="Icons/assembly-x86.png" alt="Assembly x86"></div>
+            <span class="label">ASSEMBLY X86</span>
+          </li>
+
+          <li class="skill">
+            <div class="badge"><img class="skill-logo" src="Icons/windows.png" alt="Windows"></div>
+            <span class="label">WINDOWS</span>
+          </li>
+
+          <li class="skill">
+            <div class="badge"><img class="skill-logo" src="Icons/linux-modified.png" alt="Linux"></div>
+            <span class="label">LINUX</span>
+          </li>
+
+          <li class="skill">
+            <div class="badge"><img class="skill-logo" src="Icons/vscode-modified.png" alt="VS Code"></div>
+            <span class="label">VS CODE</span>
+          </li>
+
+          <li class="skill">
+            <div class="badge"><img class="skill-logo" src="Icons/github.png" alt="GitHub"></div>
+            <span class="label">GITHUB</span>
+          </li>
+
+          <li class="skill">
+            <div class="badge"><img class="skill-logo" src="Icons/microsoft-office-modified.png" alt="Microsoft Office"></div>
+            <span class="label">MICROSOFT OFFICE</span>
+          </li>
         </ul>
       </section>
 
+      <!-- Projects -->
       <section id="projects" class="card">
         <h2>Projects</h2>
         <div class="section-rule"></div>
 
         <div class="projects-grid">
-
           <!-- Project 1 -->
           <div class="project-card">
             <h3 class="project-title">Personal File Manager</h3>
@@ -81,38 +144,22 @@
               <li>The program allows registration with a personal email, login, and secure access to a private directory, with data encrypted and stored in separate files.</li>
               <li>Users can also log out safely, with all changes saved.</li>
             </ul>
-            <div class="pill-row">
+            <div class="project-tags">
               <span class="pill-toggle">Bash</span>
               <span class="pill-toggle">Linux</span>
             </div>
-            <a href="#" class="btn-primary">
-              <img src="Icons/github.png" alt="GitHub" class="btn-icon" /> Github
-            </a>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="project-card">
-            <h3 class="project-title">Sample Project</h3>
-            <ul class="project-points">
-              <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-              <li>Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</li>
-              <li>Sed nisi. Nulla quis sem at nibh elementum imperdiet.</li>
-            </ul>
-            <div class="pill-row">
-              <span class="pill-toggle">Tech 1</span>
-              <span class="pill-toggle">Tech 2</span>
-              <span class="pill-toggle">Tech 3</span>
+            <div class="project-actions">
+              <a href="#" class="btn-primary">
+                <img src="Icons/github.png" alt="GitHub" class="btn-icon" />
+                Github
+              </a>
             </div>
-            <a href="#" class="btn-primary">
-              <img src="Icons/github.png" alt="GitHub" class="btn-icon" /> Github
-            </a>
           </div>
-
         </div>
       </section>
     </main>
   </div>
 
-  <script src="script.js?v=12" defer></script>
+  <script src="script.js?v=13" defer></script>
 </body>
 </html>
