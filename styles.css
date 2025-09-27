@@ -47,7 +47,7 @@
   --btn-text: #000000;
 
   /* Extra bottom spacing after Projects */
-  --projects-bottom-space: 320px;
+  --projects-bottom-space: 220px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -220,6 +220,7 @@ body {
   gap: 32px;
   max-width: 1200px;
   align-items: stretch; /* toate cardurile au aceeași înălțime */
+  margin-left: 40px;
 }
 
 @media (max-width: 900px) { .projects-grid { grid-template-columns: 1fr; } }
