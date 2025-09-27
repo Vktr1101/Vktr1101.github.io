@@ -206,10 +206,12 @@ body {
 /* Projects */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(360px, 1fr)); /* 2 pe rând */
-  gap: 28px;                          /* mic spațiu între ele */
-  max-width: 1200px;                  /* aliniere cu skills (același max-width) */
+  grid-template-columns: repeat(2, minmax(360px, 1fr));
+  gap: 32px;
+  max-width: 1200px;              /* aliniere ca la skills */
+  margin-left: clamp(16px, 2.5vw, 40px); /* același offset ca la .hero-bullets și .skills-grid */
 }
+
 @media (max-width: 900px) { .projects-grid { grid-template-columns: 1fr; } }
 
 .project-card {
