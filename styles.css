@@ -71,7 +71,11 @@ body {
 }
 
 /* Layout */
-.layout { padding: var(--page-pad); padding-left: calc(var(--sidebar-w) + var(--gap) + var(--page-pad)); }
+.layout { 
+  padding: var(--page-pad); 
+  /* distanță uniformă între sidebar și toate secțiunile (skills + projects) */
+  padding-left: calc(var(--sidebar-w) + var(--gap) + var(--page-pad)); 
+}
 
 .sidebar {
   position: fixed; left: var(--page-pad); top: var(--page-pad); bottom: var(--page-pad);
@@ -207,13 +211,14 @@ body {
 @media (max-width: 600px)  { .skills-grid { grid-template-columns: repeat(2, minmax(120px, 1fr)); } }
 
 /* Projects */
-#projects { padding-bottom: var(--projects-bottom-space); } /* mult spațiu sub ultimul card */
+#projects { padding-bottom: var(--projects-bottom-space); }
 
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(360px, 1fr));
   gap: 32px;
-  max-width: 1200px; /* aliniat ca Skills */
+  max-width: 1200px;
+  align-items: stretch; /* toate cardurile au aceeași înălțime */
 }
 
 @media (max-width: 900px) { .projects-grid { grid-template-columns: 1fr; } }
@@ -223,6 +228,8 @@ body {
   border-radius: var(--card-radius);
   padding: 32px 32px 28px;
   min-height: 460px;
+  height: 100%; /* uniformizare pe înălțime */
+  width: 100%;  /* uniformizare pe lățime */
   box-shadow: 0 12px 28px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(255,255,255,0.06);
   display: grid;
   gap: 20px;
@@ -230,9 +237,9 @@ body {
 
 /* cardul de pe rândul următor, centrat */
 .project-card.center {
-  grid-column: 1 / -1;      /* întinde pe ambele coloane ale grilei */
-  justify-self: center;     /* centrează cardul pe rândul lui */
-  width: min(720px, 100%);  /* lățime max plăcută; poți ajusta (ex. 800px) */
+  grid-column: 1 / -1;      
+  justify-self: center;     
+  width: min(720px, 100%);  
 }
 
 .project-title {
@@ -292,7 +299,7 @@ body {
   padding: 0 calc(var(--btn-pad-x) + 6px);
   border-radius: 12px;
   text-decoration: none;
-  color: var(--btn-text);   /* NEGRU */
+  color: var(--btn-text);
   background: var(--btn-bg);
   font-size: clamp(16px, 1.4vw, 20px);
   font-weight: 700;
