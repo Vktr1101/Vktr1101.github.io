@@ -29,22 +29,25 @@
   --label-size: clamp(14px, 1.15vw, 18px);
 
   --skills-col-gap: 20px;
-  --skills-row-gap: 22px; /* mai mult spațiu între rândurile de skill-uri */
+  --skills-row-gap: 22px;
 
   --title-gap: 80px;
 
-  --badge-bg: #232140;   /* skills badges */
+  --badge-bg: #232140;
   --badge-hover: #a855f7;
 
   /* Projects */
-  --card-bg: #232130;    /* proiect cards */
+  --card-bg: #232130;
   --card-radius: 18px;
 
   --btn-h: 42px;
   --btn-pad-x: 16px;
-  --btn-bg: #a855f7;     /* buton Github mov */
+  --btn-bg: #a855f7;
   --btn-bg-hover: #9333ea;
-  --btn-text: #000000;   /* text negru cerut acum */
+  --btn-text: #000000;
+
+  /* Extra bottom spacing after Projects */
+  --projects-bottom-space: 320px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -152,7 +155,7 @@ body {
 
 .hero-rule {
   height: 4px; width: min(1200px, 86vw);
-  background: linear-gradient(90deg, var(--brand), rgba(168,85,247,0));
+  background: linear-gradient(90deg, var(--brand), rgba(168, 85, 247, 0));
   border-radius: 999px; margin: 14px 0 var(--title-gap) 0;
 }
 
@@ -172,7 +175,7 @@ body {
 
 .section-rule {
   height: 4px; width: min(1200px, 86vw);
-  background: linear-gradient(90deg, var(--brand), rgba(168,85,247,0));
+  background: linear-gradient(90deg, var(--brand), rgba(168, 85, 247, 0));
   border-radius: 999px; margin: 12px 0 var(--title-gap) 0;
 }
 .section-skills { margin-bottom: calc(var(--title-gap) * 0.7); }
@@ -204,12 +207,13 @@ body {
 @media (max-width: 600px)  { .skills-grid { grid-template-columns: repeat(2, minmax(120px, 1fr)); } }
 
 /* Projects */
+#projects { padding-bottom: var(--projects-bottom-space); } /* mult spațiu sub ultimul card */
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(360px, 1fr));
   gap: 32px;
-  max-width: 1200px;              /* aliniere ca la skills */
-  margin-left: clamp(16px, 2.5vw, 40px); /* același offset ca la .hero-bullets și .skills-grid */
+  max-width: 1200px; /* aliniat ca Skills */
 }
 
 @media (max-width: 900px) { .projects-grid { grid-template-columns: 1fr; } }
@@ -222,6 +226,13 @@ body {
   box-shadow: 0 12px 28px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(255,255,255,0.06);
   display: grid;
   gap: 20px;
+}
+
+/* cardul de pe rândul următor, centrat */
+.project-card.center {
+  grid-column: 1 / -1;      /* întinde pe ambele coloane ale grilei */
+  justify-self: center;     /* centrează cardul pe rândul lui */
+  width: min(720px, 100%);  /* lățime max plăcută; poți ajusta (ex. 800px) */
 }
 
 .project-title {
@@ -240,7 +251,7 @@ body {
   color: var(--text);
 }
 
-/* toggles set: fundal #232140, hover mov, click = on/off */
+/* toggles */
 .project-toggles {
   display: flex;
   flex-wrap: wrap;
@@ -270,7 +281,7 @@ body {
   border-color: var(--brand);
 }
 
-/* buton Github: mov, text NEGRU, cu icon */
+/* buton Github */
 .project-actions { margin-top: 6px; display: flex; justify-content: flex-start; }
 .btn-primary {
   display: inline-flex;
@@ -281,7 +292,7 @@ body {
   padding: 0 calc(var(--btn-pad-x) + 6px);
   border-radius: 12px;
   text-decoration: none;
-  color: var(--btn-text);    /* negru */
+  color: var(--btn-text);   /* NEGRU */
   background: var(--btn-bg);
   font-size: clamp(16px, 1.4vw, 20px);
   font-weight: 700;
