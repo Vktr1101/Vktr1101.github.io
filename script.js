@@ -1,18 +1,17 @@
-// anul din footer
-document.getElementById('year').textContent = new Date().getFullYear();
+// eliminat setarea pentru #year (footerul a fost șters)
 
-// scroll-spy pentru linkurile din sidebar
+// colectăm link-urile din meniuri
 const links = Array.from(document.querySelectorAll('.sidenav .nav-link, #sidenav-mobile .nav-link'))
   .filter(a => a.hash && document.querySelector(a.hash));
 
 const sections = links.map(a => document.querySelector(a.hash));
+
 const setActive = (hash) => {
   document.querySelectorAll('.nav-link.active').forEach(el => el.classList.remove('active'));
   document.querySelectorAll(`.nav-link[href="${hash}"]`).forEach(el => el.classList.add('active'));
 };
 
 const obs = new IntersectionObserver((entries) => {
-  // cea mai vizibilă secțiune primește activ
   const visible = entries.filter(e => e.isIntersecting)
                          .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
   if (visible) setActive('#' + visible.target.id);
@@ -20,23 +19,21 @@ const obs = new IntersectionObserver((entries) => {
 
 sections.forEach(sec => obs.observe(sec));
 
-// smooth scroll pentru mobile nav (fallback în unele browsere)
+// smooth scroll + închidere meniu mobil
+const menuToggle = document.querySelector('.menu-toggle');
+const mobileNav  = document.getElementById('sidenav-mobile');
+
 links.forEach(a => a.addEventListener('click', e => {
   const target = document.querySelector(a.hash);
   if (target) {
     e.preventDefault();
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    // închide meniul mobil dacă e deschis
-    if (window.innerWidth <= 900) {
+    if (window.innerWidth <= 900 && mobileNav) {
       mobileNav.hidden = true;
-      menuToggle.setAttribute('aria-expanded', 'false');
+      if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
     }
   }
 }));
-
-// meniu mobil
-const menuToggle = document.querySelector('.menu-toggle');
-const mobileNav = document.getElementById('sidenav-mobile');
 
 if (menuToggle && mobileNav) {
   menuToggle.addEventListener('click', () => {
