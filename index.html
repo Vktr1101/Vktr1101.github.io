@@ -6,7 +6,7 @@
   <title>CV — Victor Ilie</title>
   <meta name="description" content="Online CV — Victor Ilie: profile, education and contact." />
   <meta name="color-scheme" content="light dark" />
-  <link rel="stylesheet" href="styles.css?v=40" />
+  <link rel="stylesheet" href="styles.css?v=41" />
 </head>
 <body>
   <div class="layout">
@@ -68,65 +68,18 @@
         <div class="section-rule section-skills"></div>
 
         <ul class="skills-grid">
-          <li class="skill">
-            <div class="badge"><img class="skill-logo" src="Icons/cpp-modified.png" alt="C++"></div>
-            <span class="label">C++</span>
-          </li>
-
-          <li class="skill">
-            <div class="badge"><img class="skill-logo" src="Icons/bash.png" alt="Bash"></div>
-            <span class="label">BASH</span>
-          </li>
-
-          <li class="skill">
-            <div class="badge"><img class="skill-logo" src="Icons/html-modified.png" alt="HTML"></div>
-            <span class="label">HTML</span>
-          </li>
-
-          <li class="skill">
-            <div class="badge"><img class="skill-logo" src="Icons/css-modified.png" alt="CSS"></div>
-            <span class="label">CSS</span>
-          </li>
-
-          <li class="skill">
-            <div class="badge"><img class="skill-logo" src="Icons/javascript-modified.png" alt="JavaScript"></div>
-            <span class="label">JAVASCRIPT</span>
-          </li>
-
-          <li class="skill">
-            <div class="badge"><img class="skill-logo" src="Icons/python-modified.png" alt="Python"></div>
-            <span class="label">PYTHON</span>
-          </li>
-
-          <li class="skill">
-            <div class="badge"><img class="skill-logo" src="Icons/assembly-x86.png" alt="Assembly x86"></div>
-            <span class="label">ASSEMBLY X86</span>
-          </li>
-
-          <li class="skill">
-            <div class="badge"><img class="skill-logo" src="Icons/windows.png" alt="Windows"></div>
-            <span class="label">WINDOWS</span>
-          </li>
-
-          <li class="skill">
-            <div class="badge"><img class="skill-logo" src="Icons/linux-modified.png" alt="Linux"></div>
-            <span class="label">LINUX</span>
-          </li>
-
-          <li class="skill">
-            <div class="badge"><img class="skill-logo" src="Icons/vscode-modified.png" alt="VS Code"></div>
-            <span class="label">VS CODE</span>
-          </li>
-
-          <li class="skill">
-            <div class="badge"><img class="skill-logo" src="Icons/github.png" alt="GitHub"></div>
-            <span class="label">GITHUB</span>
-          </li>
-
-          <li class="skill">
-            <div class="badge"><img class="skill-logo" src="Icons/microsoft-office-modified.png" alt="Microsoft Office"></div>
-            <span class="label">MICROSOFT OFFICE</span>
-          </li>
+          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/cpp-modified.png" alt="C++"></div><span class="label">C++</span></li>
+          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/bash.png" alt="Bash"></div><span class="label">BASH</span></li>
+          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/html-modified.png" alt="HTML"></div><span class="label">HTML</span></li>
+          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/css-modified.png" alt="CSS"></div><span class="label">CSS</span></li>
+          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/javascript-modified.png" alt="JavaScript"></div><span class="label">JAVASCRIPT</span></li>
+          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/python-modified.png" alt="Python"></div><span class="label">PYTHON</span></li>
+          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/assembly-x86.png" alt="Assembly x86"></div><span class="label">ASSEMBLY X86</span></li>
+          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/windows.png" alt="Windows"></div><span class="label">WINDOWS</span></li>
+          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/linux-modified.png" alt="Linux"></div><span class="label">LINUX</span></li>
+          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/vscode-modified.png" alt="VS Code"></div><span class="label">VS CODE</span></li>
+          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/github.png" alt="GitHub"></div><span class="label">GITHUB</span></li>
+          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/microsoft-office-modified.png" alt="Microsoft Office"></div><span class="label">MICROSOFT OFFICE</span></li>
         </ul>
       </section>
 
@@ -137,29 +90,52 @@
 
         <div class="projects-grid">
           <!-- Project 1 -->
-          <div class="project-card">
+          <article class="project-card">
             <h3 class="project-title">Personal File Manager</h3>
             <ul class="project-points">
               <li>Open-source university project, designed to manage personal files and directories for individual users.</li>
               <li>The program allows registration with a personal email, login, and secure access to a private directory, with data encrypted and stored in separate files.</li>
               <li>Users can also log out safely, with all changes saved.</li>
             </ul>
-            <div class="project-tags">
-              <span class="pill-toggle">Bash</span>
-              <span class="pill-toggle">Linux</span>
+            <div class="project-toggles" role="group" aria-label="Tech stack toggles">
+              <button class="pill-toggle" type="button" aria-pressed="false">Bash</button>
+              <button class="pill-toggle" type="button" aria-pressed="false">Linux</button>
             </div>
             <div class="project-actions">
-              <a href="#" class="btn-primary">
-                <img src="Icons/github.png" alt="GitHub" class="btn-icon" />
-                Github
+              <a href="#" class="btn-primary" aria-label="Open project on GitHub">
+                <img src="Icons/github.png" alt="" class="btn-icon" />
+                <span>Github</span>
               </a>
             </div>
-          </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card">
+            <h3 class="project-title">Password Generator</h3>
+            <ul class="project-points">
+              <li>Simple yet practical project created to learn Python, JavaScript, and HTML.</li>
+              <li>The app generates customizable passwords, allowing users to choose characters, set length, copy, delete, and regenerate passwords.</li>
+              <li>Versions built for both PC and mobile (via Expo Go).</li>
+            </ul>
+            <div class="project-toggles" role="group" aria-label="Tech stack toggles">
+              <button class="pill-toggle" type="button" aria-pressed="false">Python</button>
+              <button class="pill-toggle" type="button" aria-pressed="false">JavaScript</button>
+              <button class="pill-toggle" type="button" aria-pressed="false">HTML</button>
+              <button class="pill-toggle" type="button" aria-pressed="false">Inno Setup</button>
+              <button class="pill-toggle" type="button" aria-pressed="false">Expo Go</button>
+            </div>
+            <div class="project-actions">
+              <a href="#" class="btn-primary" aria-label="Open project on GitHub">
+                <img src="Icons/github.png" alt="" class="btn-icon" />
+                <span>Github</span>
+              </a>
+            </div>
+          </article>
         </div>
       </section>
     </main>
   </div>
 
-  <script src="script.js?v=13" defer></script>
+  <script src="script.js?v=15" defer></script>
 </body>
 </html>
