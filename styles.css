@@ -73,7 +73,7 @@ body {
 /* Layout */
 .layout { 
   padding: var(--page-pad); 
-  padding-left: calc(var(--sidebar-w) + var(--gap) + var(--page-pad));
+  padding-left: calc(var(--sidebar-w) + 2 * var(--gap) + var(--page-pad));
 }
 
 .sidebar {
@@ -139,9 +139,11 @@ body {
   display: grid; 
   gap: var(--section-gap);
   padding-top: var(--page-top);
+  /* aici era padding-left: clamp(8px, 1vw, 16px); — îl scoatem */
   padding-right: clamp(40px, 6vw, 120px);
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
+
 
 .card { background: transparent; border: none; box-shadow: none; padding: 0; }
 
