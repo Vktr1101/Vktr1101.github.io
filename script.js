@@ -1,6 +1,4 @@
-// eliminat setarea pentru #year (footerul a fost șters)
-
-// colectăm link-urile din meniuri
+// links din meniuri
 const links = Array.from(document.querySelectorAll('.sidenav .nav-link, #sidenav-mobile .nav-link'))
   .filter(a => a.hash && document.querySelector(a.hash));
 
@@ -42,3 +40,11 @@ if (menuToggle && mobileNav) {
     menuToggle.setAttribute('aria-expanded', String(open));
   });
 }
+
+// toggle pentru chips din Projects
+document.querySelectorAll('.pill-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const active = btn.classList.toggle('is-active');
+    btn.setAttribute('aria-pressed', String(active));
+  });
+});
