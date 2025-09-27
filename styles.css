@@ -73,8 +73,7 @@ body {
 /* Layout */
 .layout { 
   padding: var(--page-pad); 
-  /* distanță uniformă între sidebar și toate secțiunile (skills + projects) */
-  padding-left: calc(var(--sidebar-w) + var(--gap) + var(--page-pad)); 
+  padding-left: calc(var(--sidebar-w) + var(--gap) + var(--page-pad));
 }
 
 .sidebar {
@@ -137,9 +136,9 @@ body {
 
 /* Content */
 .content {
-  display: grid; gap: var(--section-gap);
+  display: grid; 
+  gap: var(--section-gap);
   padding-top: var(--page-top);
-  padding-left: clamp(8px, 1vw, 16px);
   padding-right: clamp(40px, 6vw, 120px);
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
