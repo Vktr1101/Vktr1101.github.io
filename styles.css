@@ -252,7 +252,7 @@ body {
 }
 
 .project-title {
-  font-size: clamp(20px, 2vw, 28px);
+  font-size: clamp(20px, 2.6vw, 36px); /* valoarea maximă ca înainte */
   font-weight: 800;
   margin: 0 0 10px 0;
   letter-spacing: -0.01em;
@@ -262,7 +262,7 @@ body {
   list-style: disc;
   margin: 0 0 16px 20px;
   padding: 0;
-  font-size: clamp(14px, 1.2vw, 16px);
+  font-size: clamp(14px, 1.6vw, 24px); /* min mic pentru mobil, max mare pt desktop */
   line-height: 1.5;
   color: var(--text);
 }
@@ -317,7 +317,7 @@ body {
   text-decoration: none;
   color: var(--btn-text);
   background: var(--btn-bg);
-  font-size: clamp(14px, 1.2vw, 16px);
+  font-size: var(--label-size);  /* identic cu skill labels */
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -333,9 +333,9 @@ body {
 }
 
 .btn-primary:active {
-  background: var(--btn-bg);
-  box-shadow: 0 10px 22px rgba(168,85,247,0.28);
+  background: var(--btn-bg); /* nu mai rămâne aprins mov */
   transform: none;
+  box-shadow: 0 10px 22px rgba(168,85,247,0.28);
 }
 
 .btn-icon { width: 20px; height: 20px; object-fit: contain; display: block; }
