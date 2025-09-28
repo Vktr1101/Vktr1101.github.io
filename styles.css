@@ -279,6 +279,8 @@ body {
   align-items: center;
 }
 .pill-toggle {
+  display: inline-grid;          /* <- centrare ușoară, robustă */
+  place-items: center;           /* <- centru pe ambele axe */
   height: var(--btn-h);
   padding: 0 var(--btn-pad-x);
   border-radius: 999px;
@@ -288,23 +290,14 @@ body {
   font-size: var(--fs-14);
   font-weight: 800;
   letter-spacing: 0.03em;
-  cursor: default;         /* rămâne săgeată */
+  cursor: default;               /* ca la skills; rămâne non-clickable */
   transition: background-color .18s ease, border-color .18s ease, transform .1s ease, box-shadow .18s ease;
 }
-
 .pill-toggle:hover {
-  background: var(--brand);
+  background: var(--brand);      /* exact ca hover-ul din skills (mov) */
   border-color: var(--brand);
   transform: translateY(-2px);
   box-shadow: 0 12px 24px rgba(168,85,247,0.16);
-}
-
-/* eliminăm click permanent */
-.pill-toggle:active,
-.pill-toggle.is-active {
-  background: #232140;
-  border-color: rgba(255,255,255,0.16);
-  box-shadow: none;
 }
 
 
