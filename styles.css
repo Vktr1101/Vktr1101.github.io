@@ -285,11 +285,11 @@ body {
   border: 1px solid rgba(255,255,255,0.16);
   background: #232140;
   color: var(--text);
-  font-size: var(--fs-14);        /* la fel ca label */
-  font-weight: 800;              /* bold */
-  letter-spacing: 0.03em;        /* spațiere ca la skills */
-  cursor: pointer;
-  transition: background-color .18s ease, border-color .18s ease, transform .1s ease, box-shadow .18s ease, color .18s ease;
+  font-size: var(--fs-14);
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  cursor: default;         /* rămâne săgeată */
+  transition: background-color .18s ease, border-color .18s ease, transform .1s ease, box-shadow .18s ease;
 }
 
 .pill-toggle:hover {
@@ -299,18 +299,14 @@ body {
   box-shadow: 0 12px 24px rgba(168,85,247,0.16);
 }
 
-/* eliminăm rămânerea aprinsă după click */
-.pill-toggle:active {
+/* eliminăm click permanent */
+.pill-toggle:active,
+.pill-toggle.is-active {
   background: #232140;
   border-color: rgba(255,255,255,0.16);
   box-shadow: none;
 }
 
-/* scoatem stilul permanent is-active */
-.pill-toggle.is-active {
-  background: #232140;
-  border-color: rgba(255,255,255,0.16);
-}
 
 /* buton Github */
 .project-actions {
