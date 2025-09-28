@@ -104,12 +104,22 @@ body {
   font-weight: normal;
   transition: transform .08s ease, border-color .2s ease, background-color .2s ease, box-shadow .2s ease, font-weight .1s ease;
 }
+.nav-link {
+  display: block; width: 100%; text-decoration: none; color: var(--brand);
+  border: 1px solid rgba(255,255,255,0.18); border-radius: 14px; padding: 10px 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.12));
+  text-align: center; font-size: clamp(14px, 1.2vw, 18px);
+  font-weight: normal;
+  transition: transform .08s ease, border-color .2s ease, box-shadow .2s ease, font-weight .1s ease;
+}
+
 .nav-link:hover {
   transform: translateY(-1px);
   border-color: var(--brand);
   font-weight: 700;
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand) 24%, transparent);
 }
+
 .nav-link.active {
   font-weight: normal;
   border-color: rgba(255,255,255,0.18);
@@ -281,20 +291,31 @@ body {
   border: 1px solid rgba(255,255,255,0.16);
   background: #232140;
   color: var(--text);
-  font-weight: 800;
-  letter-spacing: .02em;
+  font-size: var(--fs-14);        /* la fel ca label */
+  font-weight: 800;              /* bold */
+  letter-spacing: 0.03em;        /* spațiere ca la skills */
   cursor: pointer;
   transition: background-color .18s ease, border-color .18s ease, transform .1s ease, box-shadow .18s ease, color .18s ease;
 }
+
 .pill-toggle:hover {
   background: var(--brand);
   border-color: var(--brand);
   transform: translateY(-2px);
   box-shadow: 0 12px 24px rgba(168,85,247,0.16);
 }
+
+/* eliminăm rămânerea aprinsă după click */
+.pill-toggle:active {
+  background: #232140;
+  border-color: rgba(255,255,255,0.16);
+  box-shadow: none;
+}
+
+/* scoatem stilul permanent is-active */
 .pill-toggle.is-active {
-  background: var(--brand);
-  border-color: var(--brand);
+  background: #232140;
+  border-color: rgba(255,255,255,0.16);
 }
 
 /* buton Github */
