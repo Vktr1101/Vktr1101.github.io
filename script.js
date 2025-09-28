@@ -39,11 +39,3 @@ if (menuToggle && mobileNav) {
     menuToggle.setAttribute('aria-expanded', String(open));
   });
 }
-
-// TOGGLE pentru chips (fundal #232140 -> #a855f7)
-document.querySelectorAll('.pill-toggle').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const active = btn.classList.toggle('is-active');
-    btn.setAttribute('aria-pressed', String(active));
-  });
-});
