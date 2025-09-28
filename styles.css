@@ -101,10 +101,20 @@ body {
   border: 1px solid rgba(255,255,255,0.18); border-radius: 14px; padding: 10px 12px;
   background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.12));
   text-align: center; font-size: clamp(14px, 1.2vw, 18px);
+  font-weight: normal;
   transition: transform .08s ease, border-color .2s ease, background-color .2s ease, box-shadow .2s ease, font-weight .1s ease;
 }
-.nav-link:hover { transform: translateY(-1px); border-color: var(--brand); }
-.nav-link.active { font-weight: 700; border-color: var(--brand); box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand) 24%, transparent); }
+.nav-link:hover {
+  transform: translateY(-1px);
+  border-color: var(--brand);
+  font-weight: 700;
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand) 24%, transparent);
+}
+.nav-link.active {
+  font-weight: normal;
+  border-color: rgba(255,255,255,0.18);
+  box-shadow: none;
+}
 
 /* Contact pills */
 .links { margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -139,11 +149,9 @@ body {
   display: grid; 
   gap: var(--section-gap);
   padding-top: var(--page-top);
-  /* aici era padding-left: clamp(8px, 1vw, 16px); — îl scoatem */
   padding-right: clamp(40px, 6vw, 120px);
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
-
 
 .card { background: transparent; border: none; box-shadow: none; padding: 0; }
 
@@ -219,7 +227,7 @@ body {
   grid-template-columns: repeat(2, minmax(360px, 1fr));
   gap: 32px;
   max-width: 1200px;
-  align-items: stretch; /* toate cardurile au aceeași înălțime */
+  align-items: stretch;
   margin-left: 40px;
 }
 
@@ -230,22 +238,21 @@ body {
   border-radius: var(--card-radius);
   padding: 32px 32px 28px;
   min-height: 460px;
-  height: 100%; /* uniformizare pe înălțime */
-  width: 100%;  /* uniformizare pe lățime */
+  height: 100%;
+  width: 100%;
   box-shadow: 0 12px 28px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(255,255,255,0.06);
   display: grid;
   gap: 20px;
 }
 
-/* cardul de pe rândul următor, centrat */
 .project-card.center {
-  grid-column: 1 / -1;      
-  justify-self: center;     
-  width: min(720px, 100%);  
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: min(720px, 100%);
 }
 
 .project-title {
-  font-size: clamp(26px, 2.6vw, 36px);
+  font-size: clamp(20px, 2vw, 28px);
   font-weight: 800;
   margin: 0 0 10px 0;
   letter-spacing: -0.01em;
@@ -255,7 +262,7 @@ body {
   list-style: disc;
   margin: 0 0 16px 20px;
   padding: 0;
-  font-size: clamp(18px, 1.6vw, 24px);
+  font-size: clamp(14px, 1.2vw, 16px);
   line-height: 1.5;
   color: var(--text);
 }
@@ -294,8 +301,8 @@ body {
 .project-actions {
   margin-top: 6px;
   display: flex;
-  flex-direction: column;  /* << butoanele unul sub altul */
-  gap: 12px;               /* spațiu între butoane */
+  flex-direction: column;
+  gap: 12px;
 }
 
 .btn-primary {
@@ -303,15 +310,17 @@ body {
   align-items: center;
   gap: 8px;
   justify-content: center;
-  width: 100%;        /* << butonul ocupă toată lățimea cardului */
+  width: 100%;
   height: var(--btn-h);
   padding: 0 calc(var(--btn-pad-x) + 6px);
   border-radius: 12px;
   text-decoration: none;
   color: var(--btn-text);
   background: var(--btn-bg);
-  font-size: clamp(16px, 1.4vw, 20px);
-  font-weight: 700;
+  font-size: clamp(14px, 1.2vw, 16px);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
   border: none;
   box-shadow: 0 10px 22px rgba(168,85,247,0.28);
   transition: background-color .2s ease, transform .15s ease, box-shadow .2s ease, opacity .18s ease;
@@ -322,6 +331,13 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 16px 30px rgba(168,85,247,0.35);
 }
+
+.btn-primary:active {
+  background: var(--btn-bg);
+  box-shadow: 0 10px 22px rgba(168,85,247,0.28);
+  transform: none;
+}
+
 .btn-icon { width: 20px; height: 20px; object-fit: contain; display: block; }
 
 /* Utilities */
