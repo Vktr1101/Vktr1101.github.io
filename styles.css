@@ -36,7 +36,6 @@
   --badge-bg: #232140;
   --badge-hover: #a855f7;
 
-  /* Projects */
   --card-bg: #232130;
   --card-radius: 18px;
 
@@ -46,7 +45,6 @@
   --btn-bg-hover: #9333ea;
   --btn-text: #000000;
 
-  /* Extra bottom spacing after Projects */
   --projects-bottom-space: 220px;
 }
 
@@ -70,7 +68,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Layout */
+
 .layout { 
   padding: var(--page-pad); 
   padding-left: calc(var(--sidebar-w) + 2 * var(--gap) + var(--page-pad));
@@ -87,14 +85,14 @@ body {
   .sidebar { position: static; width: auto; overflow: visible; margin-bottom: var(--gap); }
 }
 
-/* Profile */
+
 .profile { display: grid; justify-items: center; gap: 12px; }
 .avatar { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(255,255,255,0.08); }
 .name { margin: 6px 0 0; font-size: var(--fs-36); line-height: 1.1; letter-spacing: -0.02em; }
 .role { margin: 0; color: var(--text); font-size: var(--fs-16); }
 .edu { margin-top: 8px; text-align: center; color: var(--muted); font-size: var(--fs-13); display: grid; gap: 6px; }
 
-/* Navigation */
+
 .sidenav { margin-top: 14px; width: 100%; display: grid; gap: var(--nav-gap); }
 .nav-link {
   display: block; width: 100%; text-decoration: none; color: var(--brand);
@@ -120,7 +118,7 @@ body {
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand) 24%, transparent);
 }
 
-/* Contact pills */
+
 .links { margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 @media (max-width: 460px) { .links { grid-template-columns: 1fr; } }
 
@@ -131,7 +129,7 @@ body {
 }
 .pill:hover { border-color: var(--brand); }
 
-/* Mobile nav */
+
 .menu-toggle {
   display: none; margin-top: 12px; width: 100%;
   border: 1px solid rgba(255,255,255,0.18); background: var(--sidebar-bg); color: var(--text);
@@ -148,7 +146,7 @@ body {
   .sidenav-mobile .nav-link { color: var(--brand); }
 }
 
-/* Content */
+
 .content {
   display: grid; 
   gap: var(--section-gap);
@@ -166,7 +164,7 @@ body {
 
 .card p { margin: 0 0 12px; }
 
-/* About */
+
 #about { padding-left: 0; padding-bottom: var(--section-gap-extra); }
 .hero-title { font-size: var(--hero-title-size); line-height: 1.05; letter-spacing: -0.012em; margin: 0 0 10px 0; }
 
@@ -187,7 +185,7 @@ body {
   color: var(--brand); filter: drop-shadow(0 0 2px rgba(168,85,247,0.4));
 }
 
-/* Skills */
+
 #skills { padding-bottom: var(--section-gap-extra); }
 
 .section-rule {
@@ -223,7 +221,7 @@ body {
 @media (max-width: 900px)  { .skills-grid { grid-template-columns: repeat(3, minmax(120px, 1fr)); } }
 @media (max-width: 600px)  { .skills-grid { grid-template-columns: repeat(2, minmax(120px, 1fr)); } }
 
-/* Projects */
+
 #projects { padding-bottom: var(--projects-bottom-space); }
 
 .projects-grid {
@@ -256,7 +254,7 @@ body {
 }
 
 .project-title {
-  font-size: clamp(22px, 2.6vw, 36px); /* valoarea maximă ca înainte */
+  font-size: clamp(22px, 2.6vw, 36px); 
   font-weight: 800;
   margin: 0 0 10px 0;
   letter-spacing: -0.01em;
@@ -266,12 +264,12 @@ body {
   list-style: disc;
   margin: 0 0 16px 20px;
   padding: 0;
-  font-size: clamp(16px, 1.6vw, 24px); /* min mic pentru mobil, max mare pt desktop */
+  font-size: clamp(16px, 1.6vw, 24px); 
   line-height: 1.5;
   color: var(--text);
 }
 
-/* toggles */
+
 .project-toggles {
   display: flex;
   flex-wrap: wrap;
@@ -279,8 +277,8 @@ body {
   align-items: center;
 }
 .pill-toggle {
-  display: inline-grid;          /* <- centrare ușoară, robustă */
-  place-items: center;           /* <- centru pe ambele axe */
+  display: inline-grid;          
+  place-items: center;           
   height: var(--btn-h);
   padding: 0 var(--btn-pad-x);
   border-radius: 999px;
@@ -290,18 +288,18 @@ body {
   font-size: var(--fs-14);
   font-weight: 800;
   letter-spacing: 0.03em;
-  cursor: default;               /* ca la skills; rămâne non-clickable */
+  cursor: default;              
   transition: background-color .18s ease, border-color .18s ease, transform .1s ease, box-shadow .18s ease;
 }
 .pill-toggle:hover {
-  background: var(--brand);      /* exact ca hover-ul din skills (mov) */
+  background: var(--brand);      
   border-color: var(--brand);
   transform: translateY(-2px);
   box-shadow: 0 12px 24px rgba(168,85,247,0.16);
 }
 
 
-/* buton Github */
+
 .project-actions {
   margin-top: 6px;
   display: flex;
@@ -321,7 +319,7 @@ body {
   text-decoration: none;
   color: var(--btn-text);
   background: var(--btn-bg);
-  font-size: var(--label-size);  /* identic cu skill labels */
+  font-size: var(--label-size);  
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.03em;
@@ -337,14 +335,14 @@ body {
 }
 
 .btn-primary:active {
-  background: var(--btn-bg); /* nu mai rămâne aprins mov */
+  background: var(--btn-bg); 
   transform: none;
   box-shadow: 0 10px 22px rgba(168,85,247,0.28);
 }
 
 .btn-icon { width: 20px; height: 20px; object-fit: contain; display: block; }
 
-/* Utilities */
+
 .hl { color: var(--text); }
 .meta { color: var(--muted); font-size: var(--fs-14); margin-top: 6px; }
 section { scroll-margin-top: 24px; }
