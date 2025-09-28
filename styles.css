@@ -120,12 +120,6 @@ body {
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand) 24%, transparent);
 }
 
-.nav-link.active {
-  font-weight: normal;
-  border-color: rgba(255,255,255,0.18);
-  box-shadow: none;
-}
-
 /* Contact pills */
 .links { margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 @media (max-width: 460px) { .links { grid-template-columns: 1fr; } }
@@ -262,7 +256,7 @@ body {
 }
 
 .project-title {
-  font-size: clamp(20px, 2.6vw, 36px); /* valoarea maximă ca înainte */
+  font-size: clamp(22px, 2.6vw, 36px); /* valoarea maximă ca înainte */
   font-weight: 800;
   margin: 0 0 10px 0;
   letter-spacing: -0.01em;
@@ -272,7 +266,7 @@ body {
   list-style: disc;
   margin: 0 0 16px 20px;
   padding: 0;
-  font-size: clamp(14px, 1.6vw, 24px); /* min mic pentru mobil, max mare pt desktop */
+  font-size: clamp(16px, 1.6vw, 24px); /* min mic pentru mobil, max mare pt desktop */
   line-height: 1.5;
   color: var(--text);
 }
