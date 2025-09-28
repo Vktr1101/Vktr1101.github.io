@@ -1,4 +1,3 @@
-// colectare link-uri pentru active state în nav
 const links = Array.from(document.querySelectorAll('.sidenav .nav-link, #sidenav-mobile .nav-link'))
   .filter(a => a.hash && document.querySelector(a.hash));
 
@@ -16,7 +15,6 @@ const obs = new IntersectionObserver((entries) => {
 
 sections.forEach(sec => obs.observe(sec));
 
-// smooth scroll + închidere meniu mobil
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileNav  = document.getElementById('sidenav-mobile');
 
