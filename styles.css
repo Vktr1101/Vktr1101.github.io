@@ -294,6 +294,7 @@ body {
 .pill-toggle:hover {
   background: var(--brand);      
   border-color: var(--brand);
+  color: black;
   transform: translateY(-2px);
   box-shadow: 0 12px 24px rgba(168,85,247,0.16);
 }
