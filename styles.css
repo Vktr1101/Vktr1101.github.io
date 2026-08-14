@@ -375,7 +375,9 @@ body {
   max-width: 700px;
   margin: 0 auto;
 }
-.cv-frame iframe { display: block; width: 100%; height: 740px; border: 0; background: #525659; }
+.cv-frame iframe { display: block; width: 100%; height: 740px; border: 0; background: #2a2233; }
+.cv-iframe-desktop { display: block; }
+.cv-iframe-mobile { display: none; }
 .cv-open-mobile { display: none; }
 
 /* ---------- Footer ---------- */
@@ -522,16 +524,7 @@ body {
     height: 55vh;
     min-height: 380px;
   }
-
-  .cv-open-mobile {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px;
-    font-family: var(--f-mono);
-    font-size: 13px;
-    color: var(--accent);
-    text-decoration: none;
-    border-top: 1px solid var(--line);
-  }
+  .cv-iframe-desktop { display: none; }
+  .cv-iframe-mobile { display: block; height: 60vh; min-height: 420px; }
+  .cv-open-mobile { display: none; }
 }
