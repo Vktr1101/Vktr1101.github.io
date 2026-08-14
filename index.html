@@ -3,190 +3,395 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CV — Victor-Mihai Ilie</title>
+  <title>Victor's Resume</title>
   <link rel="icon" type="image/x-icon" href="Icons/favicon.ico">
-  <meta name="description" content="Online CV — Victor-Mihai Ilie: profile, education and contact." />
-  <meta name="color-scheme" content="light dark" />
-  <link rel="stylesheet" href="styles.css?v=44" />
+  <meta name="description" content="Victor-Mihai Ilie — final-year Computer Science student and software developer. Full-stack, DevOps and cloud. Projects, skills, and CV." />
+  <meta name="color-scheme" content="dark" />
+
+  <!-- Fonts: Space Grotesk (display) + Inter (body) + JetBrains Mono (utility/code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Devicon for technology logos (no local image files needed) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+  <link rel="stylesheet" href="styles.css?v=1" />
 </head>
 <body>
-  <div class="layout">
-    <!-- Sidebar -->
-    <aside class="sidebar" aria-label="Profile and navigation">
+<!-- Ambient background layers -->
+<button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu">
+  <span class="burger-box">
+    <span class="burger-line l1"></span>
+    <span class="burger-line l2"></span>
+    <span class="burger-line l3"></span>
+  </span>
+</button>
+
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-glow" aria-hidden="true"></div>
+
+<div class="layout">
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar" aria-label="Profile and navigation">
+    <div class="sidebar-inner">
       <div class="profile">
-        <img src="Icons/avatar.jpg" alt="Victor Ilie profile photo" class="avatar" />
+        <div class="avatar-ring">
+          <img src="Icons/avatar.jpg" alt="Victor-Mihai Ilie" class="avatar"
+               onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'avatar avatar-fallback',textContent:'VI'}))" />
+        </div>
         <h1 class="name">Victor-Mihai Ilie</h1>
-        <p class="role"><strong>Student - Computer Science Major</strong></p>
-
-        <div class="edu">
-          <div>Bucharest University of Economic Studies</div>
-          <div>Cybernetics, Statistics and Computer Science</div>
-          <div>Economic Computer Science</div>
-        </div>
-
-        <nav class="sidenav" aria-label="Sections">
-          <a href="#about" class="nav-link active">About Me</a>
-          <a href="#skills" class="nav-link">Tech Skills</a>
-          <a href="#projects" class="nav-link">Projects</a>
-          <a href="CV_VictorMihaiIlie.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">CV</a>
-        </nav>
-
-        <div class="links">
-          <a href="mailto:victorilie93@gmail.com" class="pill">victorilie93@gmail.com</a>
-          <a href="https://www.linkedin.com/in/victor-mihai-ilie-916039333/" target="_blank" rel="noopener noreferrer" class="pill">LinkedIn</a>
-          <a href="tel:+40720011302" class="pill">+40 720 011 302</a>
-          <a href="https://github.com/Vktr1101" target="_blank" rel="noopener noreferrer" class="pill">Github</a>
-        </div>
-
-        <button class="menu-toggle" aria-expanded="false" aria-controls="sidenav-mobile">Menu</button>
+        <p class="role"><span class="prompt">&gt;</span> Full-Stack / DevOps Developer</p>
+        <p class="tagline">Final-year CS @ ASE Bucharest</p>
       </div>
 
-      <nav id="sidenav-mobile" class="sidenav-mobile" hidden>
-        <a href="#about" class="nav-link">About Me</a>
-        <a href="#skills" class="nav-link">Tech Skills</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="CV_VictorMihaiIlie.pdf" target="_blank" rel="noopener noreferrer" class="nav-link">CV</a>
+      <nav class="sidenav" aria-label="Sections">
+        <a href="#about"      class="nav-link" data-sec="about"><span class="nav-idx"></span> About Me</a>
+        <a href="#skills"     class="nav-link" data-sec="skills"><span class="nav-idx"></span> Skills</a>
+        <a href="#experience" class="nav-link" data-sec="experience"><span class="nav-idx"></span> Experience</a>
+        <a href="#projects"   class="nav-link" data-sec="projects"><span class="nav-idx"></span> Projects</a>
+        <a href="#education"  class="nav-link" data-sec="education"><span class="nav-idx"></span> Education</a>
+        <a href="#cv"         class="nav-link" data-sec="cv"><span class="nav-idx"></span> CV</a>
       </nav>
-    </aside>
 
-    <!-- Main Content -->
-    <main class="content">
-      <!-- About -->
-      <section id="about" class="card">
-        <h2 class="hero-title">Hi, my name is <span class="hl">Victor</span>!</h2>
-        <div class="hero-rule"></div>
-        <ul class="hero-bullets">
-          <li><strong>Second-year student at the Bucharest University of Economic Studies, specializing in Computer Science, with a strong passion for technology and data-driven solutions.</strong></li>
-          <li><strong>Detail-oriented, committed to delivering high-quality work, and continuously seeking opportunities to expand my knowledge.</strong></li>
-          <li><strong>My goal is to develop solid expertise in IT to contribute effectively to innovative projects.</strong></li>
+      <div class="socials">
+        <a href="mailto:victorilie93@gmail.com" class="social" aria-label="Email" title="Email">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/victor-mihai-ilie/" target="_blank" rel="noopener" class="social" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.24 8.25h4.5V24h-4.5V8.25ZM8.5 8.25h4.31v2.15h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V24h-4.5v-6.98c0-1.66-.03-3.8-2.32-3.8-2.32 0-2.68 1.81-2.68 3.68V24H8.5V8.25Z"/></svg>
+        </a>
+        <a href="https://github.com/Vktr1101" target="_blank" rel="noopener" class="social" aria-label="GitHub" title="GitHub">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.575.106.785-.25.785-.556 0-.274-.01-1-.015-1.965-3.196.695-3.87-1.54-3.87-1.54-.523-1.33-1.277-1.684-1.277-1.684-1.044-.714.08-.7.08-.7 1.154.082 1.762 1.185 1.762 1.185 1.026 1.758 2.693 1.25 3.35.955.104-.743.402-1.25.73-1.538-2.552-.29-5.235-1.276-5.235-5.68 0-1.255.448-2.28 1.183-3.084-.119-.29-.513-1.46.112-3.043 0 0 .965-.309 3.163 1.178a10.98 10.98 0 0 1 5.76 0c2.196-1.487 3.16-1.178 3.16-1.178.626 1.583.232 2.753.114 3.043.736.804 1.18 1.83 1.18 3.084 0 4.415-2.687 5.386-5.246 5.67.412.355.78 1.056.78 2.13 0 1.538-.014 2.778-.014 3.156 0 .308.207.667.79.553A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
+        </a>
+        <a href="https://gitlab.com/victorilie93" target="_blank" rel="noopener" class="social" aria-label="GitLab" title="GitLab">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="m23.6 9.6-1.3-4.1-2.6-8c-.14-.4-.7-.4-.85 0l-2.6 8H7.75l-2.6-8c-.14-.4-.7-.4-.85 0l-2.6 8L.4 9.6c-.12.37 0 .78.32 1l11.28 8.2 11.28-8.2c.32-.22.44-.63.32-1Z"/></svg>
+        </a>
+        <a href="tel:+40720011302" class="social" aria-label="Phone" title="+40 720 011 302">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>        </a>
+      </div>
+    </div>
+
+  </aside>
+
+  <nav id="mobile-nav" class="mobile-nav overlay" hidden aria-label="Menu">
+    <img src="Icons/avatar.jpg" alt="Victor-Mihai Ilie" class="overlay-avatar"
+         onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'overlay-avatar avatar-fallback',textContent:'VI'}))" />
+    <h2 class="overlay-name">Victor-Mihai Ilie</h2>
+    <p class="overlay-role"><span class="prompt">&gt;</span> Full-Stack / DevOps Developer</p>
+    <p class="overlay-tag">Final-year CS @ ASE Bucharest</p>
+
+    <div class="overlay-links">
+      <a href="#about" class="m-link">About Me</a>
+      <a href="#skills" class="m-link">Skills</a>
+      <a href="#experience" class="m-link">Experience</a>
+      <a href="#projects" class="m-link">Projects</a>
+      <a href="#education" class="m-link">Education</a>
+      <a href="#cv" class="m-link">CV</a>
+    </div>
+
+    <div class="overlay-socials">
+      <a href="mailto:victorilie93@gmail.com" class="social" aria-label="Email">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/victor-mihai-ilie/" target="_blank" rel="noopener" class="social" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.24 8.25h4.5V24h-4.5V8.25ZM8.5 8.25h4.31v2.15h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V24h-4.5v-6.98c0-1.66-.03-3.8-2.32-3.8-2.32 0-2.68 1.81-2.68 3.68V24H8.5V8.25Z"/></svg>
+      </a>
+      <a href="https://github.com/Vktr1101" target="_blank" rel="noopener" class="social" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.575.106.785-.25.785-.556 0-.274-.01-1-.015-1.965-3.196.695-3.87-1.54-3.87-1.54-.523-1.33-1.277-1.684-1.277-1.684-1.044-.714.08-.7.08-.7 1.154.082 1.762 1.185 1.762 1.185 1.026 1.758 2.693 1.25 3.35.955.104-.743.402-1.25.73-1.538-2.552-.29-5.235-1.276-5.235-5.68 0-1.255.448-2.28 1.183-3.084-.119-.29-.513-1.46.112-3.043 0 0 .965-.309 3.163 1.178a10.98 10.98 0 0 1 5.76 0c2.196-1.487 3.16-1.178 3.16-1.178.626 1.583.232 2.753.114 3.043.736.804 1.18 1.83 1.18 3.084 0 4.415-2.687 5.386-5.246 5.67.412.355.78 1.056.78 2.13 0 1.538-.014 2.778-.014 3.156 0 .308.207.667.79.553A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
+      </a>
+      <a href="https://gitlab.com/victorilie93" target="_blank" rel="noopener" class="social" aria-label="GitLab">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="m23.6 9.6-1.3-4.1-2.6-8c-.14-.4-.7-.4-.85 0l-2.6 8H7.75l-2.6-8c-.14-.4-.7-.4-.85 0l-2.6 8L.4 9.6c-.12.37 0 .78.32 1l11.28 8.2 11.28-8.2c.32-.22.44-.63.32-1Z"/></svg>
+      </a>
+      <a href="tel:+40720011302" class="social" aria-label="Phone">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ============ MAIN ============ -->
+  <main class="content">
+
+    <!-- ABOUT -->
+    <section id="about" class="section reveal">
+      <p class="eyebrow"><span class="eyebrow-idx"></span> About Me</p>
+      <h2 class="hero-title">Hi, I'm <span class="hl">Victor</span>!<span class="caret">_</span></h2>
+      <div class="about-body">
+        <p>Final-year Computer Science student at the Faculty of Economic Cybernetics, Statistics and Computer Science, ASE Bucharest, passionate about full-stack web and application development, DevOps and cloud technologies, and database management.</p>
+        <p>Driven by a curiosity for emerging technologies and how they evolve to solve everyday problems, I also enjoy mentoring peers and leading teams and projects.</p>
+      </div>
+      <div class="about-tags">
+        <span class="chip">Full-Stack</span>
+        <span class="chip">DevOps &amp; Cloud</span>
+        <span class="chip">Databases</span>
+        <span class="chip">AI & GenAI</span>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section reveal">
+      <p class="eyebrow"><span class="eyebrow-idx"></span> Skills</p>
+      <h2 class="section-title">Tech Stack</h2>
+
+      <div class="skill-block">
+        <h3 class="skill-cat"><span class="cat-mark">//</span> Programming Languages</h3>
+        <ul class="skill-grid">
+          <li class="skill"><i class="devicon-csharp-plain"></i><span>C# (.NET)</span></li>
+          <li class="skill"><i class="devicon-java-plain"></i><span>Java</span></li>
+          <li class="skill"><i class="devicon-javascript-plain"></i><span>JavaScript</span></li>
+          <li class="skill"><i class="devicon-typescript-plain"></i><span>TypeScript</span></li>
+          <li class="skill"><i class="devicon-cplusplus-plain"></i><span>C / C++</span></li>
+          <li class="skill"><i class="devicon-python-plain"></i><span>Python</span></li>
+          <li class="skill"><i class="devicon-bash-plain"></i><span>Bash</span></li>
         </ul>
-      </section>
+      </div>
 
-      <!-- Skills -->
-      <section id="skills" class="card">
-        <h2>Tech Skills</h2>
-        <div class="section-rule section-skills"></div>
-
-        <h3>Programming Languages</h3>
-
-        <ul class="skills-grid">
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/cpp-modified.png" alt="C/C++"></div><span class="label">C/C++</span></li>
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/python-modified.png" alt="Python"></div><span class="label">PYTHON</span></li>
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/bash.png" alt="Bash"></div><span class="label">BASH</span></li>
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/sql.png" alt="SQL"></div><span class="label">SQL</span></li>
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/html-modified.png" alt="HTML"></div><span class="label">HTML</span></li>
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/css-modified.png" alt="CSS"></div><span class="label">CSS</span></li>
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/javascript-modified.png" alt="JavaScript"></div><span class="label">JAVASCRIPT</span></li>
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/csharp-modified.png" alt="C#"></div><span class="label">C#</span></li>
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/java.png" alt="Java"></div><span class="label">JAVA</span></li>
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/plsql.jpg" alt="PL/SQL"></div><span class="label">PL/SQL</span></li>
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/assembly-x86.png" alt="Assembly x86"></div><span class="label">ASSEMBLY X86</span></li>
+      <div class="skill-block">
+        <h3 class="skill-cat"><span class="cat-mark">//</span> Web Development</h3>
+        <ul class="skill-grid">
+          <li class="skill"><i class="devicon-react-original"></i><span>React.js</span></li>
+          <li class="skill"><i class="devicon-vitejs-plain"></i><span>Vite</span></li>
+          <li class="skill"><i class="devicon-nodejs-plain"></i><span>Node.js</span></li>
+          <li class="skill"><i class="devicon-express-original"></i><span>Express</span></li>
+          <li class="skill"><i class="devicon-html5-plain"></i><span>HTML</span></li>
+          <li class="skill"><i class="devicon-css3-plain"></i><span>CSS</span></li>
+          <li class="skill"><i class="devicon-wordpress-plain"></i><span>WordPress</span></li>
         </ul>
+      </div>
 
-        <br><br>
-
-        <h3>Development Tools</h3>
-
-        <ul class="skills-grid">
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/git.png" alt="GitHub"></div><span class="label">GIT</span></li>
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/vscode-modified.png" alt="VS/VS Code"></div><span class="label">VS/VS CODE</span></li>
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/intellij-modified.png" alt="Intellij Idea"></div><span class="label">INTELLIJ IDEA</span></li>
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/pycharm-modified.png" alt="PyCharm"></div><span class="label">PYCHARM</span></li>
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/clion-modified.png" alt="CLion"></div><span class="label">CLION</span></li>
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/oracleapex-modified.png" alt="Oracle Apex"></div><span class="label">ORACLE APEX</span></li>
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/inno-setup-modified.png" alt="Inno Setup"></div><span class="label">INNO SETUP</span></li>
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/expogo.svg" alt="Expo Go"></div><span class="label">EXPO GO</span></li>
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/microsoft-office-modified.png" alt="Microsoft Office"></div><span class="label">MICROSOFT OFFICE</span></li>
+      <div class="skill-block">
+        <h3 class="skill-cat"><span class="cat-mark">//</span> Databases</h3>
+        <ul class="skill-grid">
+          <li class="skill"><i class="devicon-sqlite-plain"></i><span>SQLite</span></li>
+          <li class="skill"><i class="devicon-mysql-original"></i><span>MySQL</span></li>
+          <li class="skill"><i class="devicon-postgresql-plain"></i><span>PostgreSQL</span></li>
+          <li class="skill"><i class="devicon-oracle-original"></i><span>Oracle / PL/SQL</span></li>
+          <li class="skill"><i class="devicon-mongodb-plain"></i><span>MongoDB</span></li>
         </ul>
+      </div>
 
-        <br><br>
-
-        <h3>Operating Systems</h3>
-        <ul class="skills-grid">
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/windows.png" alt="Windows"></div><span class="label">WINDOWS</span></li>
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/archlinux.png" alt="Arch Linux"></div><span class="label">ARCH LINUX</span></li>
-          <li class="skill"><div class="badge"><img class="skill-logo" src="Icons/ubuntu.png" alt="Ubuntu"></div><span class="label">UBUNTU</span></li>
+      <div class="skill-block">
+        <h3 class="skill-cat"><span class="cat-mark">//</span> DevOps &amp; Infrastructure</h3>
+        <ul class="skill-grid">
+          <li class="skill"><i class="devicon-archlinux-plain"></i><span>Linux</span></li>
+          <li class="skill"><i class="devicon-git-plain"></i><span>Git</span></li>
+          <li class="skill"><i class="devicon-docker-plain"></i><span>Docker</span></li>
+          <li class="skill"><i class="devicon-github-original"></i><span>GitHub Actions</span></li>
+          <li class="skill"><i class="devicon-gitlab-plain"></i><span>GitLab CI</span></li>
+          <li class="skill"><i class="devicon-nginx-original"></i><span>Nginx</span></li>
+          <li class="skill"><i class="devicon-terraform-plain"></i><span>Terraform</span></li>
         </ul>
-      </section>
+      </div>
 
-      <!-- Projects -->
-      <section id="projects" class="card">
-        <h2>Projects</h2>
-        <div class="section-rule"></div>
+      <div class="skill-block">
+        <h3 class="skill-cat"><span class="cat-mark">//</span> AI &amp; GenAI</h3>
+        <ul class="skill-grid">
+          <li class="skill">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" class="ai-icon">
+              <path d="M22.28 9.82a5.98 5.98 0 0 0-.52-4.91 6.05 6.05 0 0 0-6.51-2.9A6 6 0 0 0 4.98 4.18a5.98 5.98 0 0 0-4 2.9 6.05 6.05 0 0 0 .74 7.1 5.98 5.98 0 0 0 .51 4.91 6.05 6.05 0 0 0 6.52 2.9A5.98 5.98 0 0 0 13.26 24a6.06 6.06 0 0 0 5.77-4.21 5.99 5.99 0 0 0 4-2.9 6.06 6.06 0 0 0-.75-7.06zM13.26 22.43a4.48 4.48 0 0 1-2.88-1.04l.14-.08 4.78-2.76a.79.79 0 0 0 .39-.68v-6.74l2.02 1.17a.07.07 0 0 1 .04.05v5.58a4.5 4.5 0 0 1-4.5 4.5zM3.6 18.3a4.47 4.47 0 0 1-.54-3.01l.14.09 4.78 2.76a.77.77 0 0 0 .78 0l5.84-3.37v2.33a.08.08 0 0 1-.03.06L9.74 19.9a4.5 4.5 0 0 1-6.14-1.64zM2.34 7.9a4.48 4.48 0 0 1 2.37-1.97V11.6a.76.76 0 0 0 .39.68l5.82 3.36-2.02 1.17a.08.08 0 0 1-.07 0l-4.83-2.79A4.5 4.5 0 0 1 2.34 7.9zm16.6 3.86-5.84-3.4L15.11 7.2a.08.08 0 0 1 .07 0l4.83 2.78a4.5 4.5 0 0 1-.68 8.12v-5.68a.79.79 0 0 0-.39-.66zm2.01-3.03-.14-.09-4.77-2.78a.78.78 0 0 0-.79 0L9.42 9.23V6.9a.07.07 0 0 1 .03-.06l4.83-2.79a4.5 4.5 0 0 1 6.68 4.66zM8.32 12.86 6.3 11.7a.08.08 0 0 1-.04-.06V6.07a4.5 4.5 0 0 1 7.38-3.45l-.14.08L8.71 5.46a.79.79 0 0 0-.39.68zm1.1-2.37 2.6-1.5 2.6 1.5v3l-2.6 1.5-2.6-1.5z"/>
+            </svg>
+            <span>OpenAI Agents SDK</span>
+          </li>
+          <li class="skill skill-text"><span class="mono-badge">{}</span><span>Prompt Engineering</span></li>
+          <li class="skill skill-text"><span class="mono-badge">⋔</span><span>Multi-Agent Systems</span></li>
+        </ul>
+      </div>
+    </section>
 
-        <div class="projects-grid">
-          <!-- Project 1 -->
-          <article class="project-card">
-            <h3 class="project-title">Personal File Manager</h3>
-            <ul class="project-points">
-              <li>Open-source university project, designed to manage personal files and directories for individual users.</li>
-              <li>The program allows registration with a personal email, login, and secure access to a private directory, with data encrypted and stored in separate files.</li>
-              <li>Users can also log out safely, with all changes saved.</li>
-            </ul>
-            <div class="project-toggles" role="group" aria-label="Tech stack toggles">
-              <div class="pill-toggle">Bash</div>
-              <div class="pill-toggle">Linux</div>
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section reveal">
+      <p class="eyebrow"><span class="eyebrow-idx"></span> Experience</p>
+      <h2 class="section-title">Experience &amp; Volunteering</h2>
+
+      <div class="timeline">
+        <!-- SiSC group -->
+        <div class="tl-org">
+          <div class="tl-dot"></div>
+          <h3 class="org-name">SiSC — The Bucharest Cybernetics Students' Union</h3>
+
+          <div class="tl-role">
+            <div class="role-head">
+              <span class="role-title">DevOps Lead</span>
+              <span class="role-date">Jul 2026 — Present</span>
             </div>
-            <div class="project-actions">
-              <a href="https://github.com/Vktr1101/proiect_SO" class="btn-primary" target="_blank" aria-label="Open project on GitHub">
-                <img src="Icons/github.png" alt="" class="btn-icon" />
-                <span>View Code</span>
-              </a>
+            <ul class="role-points">
+              <li>Actively deploying and maintaining SiSC websites and web applications in production, using Nginx on Linux Ubuntu servers hosted on Digital Ocean.</li>
+              <li>Monitoring and optimizing application performance and memory consumption, while managing MySQL databases and CI/CD pipelines to automate deployments.</li>
+              <li>Mentoring the DevOps division members, helping them understand the real purpose behind DevOps practices.</li>
+            </ul>
+          </div>
+
+          <div class="tl-role">
+            <div class="role-head">
+              <span class="role-title">Project IT Lead — CSIE Admission</span>
+              <span class="role-date">Apr 2026 — Jul 2026</span>
+            </div>
+            <ul class="role-points">
+              <li>Led the IT team for the CSIE Admission project, coordinating members to develop and maintain the Admissions page on <a href="https://sisc.ro" target="_blank" rel="noopener">sisc.ro</a> using WordPress, with custom HTML and CSS modifications.</li>
+            </ul>
+          </div>
+
+          <div class="tl-role">
+            <div class="role-head">
+              <span class="role-title">Frontend Developer</span>
+              <span class="role-date">Nov 2025 — Apr 2026</span>
+            </div>
+            <ul class="role-points">
+              <li>Collaborated within a multidisciplinary team to refine the frontend of "Tap That Job", ensuring the quality and proper functioning of new features.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Orange group -->
+        <div class="tl-org">
+          <div class="tl-dot"></div>
+          <h3 class="org-name">Orange Romania</h3>
+          <div class="tl-role">
+            <div class="role-head">
+              <span class="role-title">Internship Trainee</span>
+              <span class="role-date">Feb 2026 — Apr 2026</span>
+            </div>
+            <ul class="role-points">
+              <li>Completed a 112-hour practicum covering the Software Development Life Cycle, DevOps practices, and Generative AI.</li>
+              <li>Worked hands-on with Git, Docker, and CI/CD pipelines (GitHub Actions) on a microservices task-management app (Python/FastAPI, Node.js/Express, React), and explored Infrastructure as Code with Terraform.</li>
+              <li>Built multi-agent systems using the OpenAI Agents SDK, implementing tool calling, structured outputs, agent handoffs, and safety guardrails.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS (carousel) -->
+    <section id="projects" class="section reveal">
+      <p class="eyebrow"><span class="eyebrow-idx"></span> Projects</p>
+      <div class="projects-head">
+        <h2 class="section-title">Projects</h2>
+        <div class="carousel-ctrl">
+          <button class="car-btn" id="carPrev" aria-label="Previous project">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <button class="car-btn" id="carNext" aria-label="Next project">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="carousel" id="carousel">
+        <div class="carousel-track" id="carTrack">
+
+          <!-- Finance Tracking -->
+          <article class="pcard">
+            <h3 class="pcard-title">Finance Tracking App</h3>
+            <ul class="pcard-points">
+              <li>A cross-platform personal finance management mobile app for iOS and Android, using a local-first architecture with SQLite for on-device data storage.</li>
+              <li>Allows users to track their balance, record income and expenses, categorize transactions, and set monthly budgets, plus visualize spending through category breakdowns and monthly trend charts, all stored locally for full privacy, with no server required.</li>
+            </ul>
+            <ul class="pcard-tech">
+              <li>React Native</li><li>Expo</li><li>TypeScript</li><li>SQLite</li>
+            </ul>
+            <div class="pcard-actions">
+              <a href="https://github.com/Vktr1101/tracker-finante" target="_blank" rel="noopener" class="pc-btn"><i class="devicon-github-original"></i> View Code</a>
             </div>
           </article>
 
-          <!-- Project 2 -->
-          <article class="project-card">
-            <h3 class="project-title">Password Generator</h3>
-            <ul class="project-points">
-              <li>Simple yet practical project created to learn Python, JavaScript, and HTML.</li>
-              <li>The app generates customizable passwords, allowing users to choose characters, set length, copy, delete, and regenerate passwords.</li>
-              <li>Versions built for both PC and mobile.</li>
+          <!-- CourtBook -->
+          <article class="pcard">
+            <h3 class="pcard-title">CourtBook</h3>
+            <ul class="pcard-points">
+              <li>Full-stack padel court booking platform, built during a 12-hour hackathon organized by SiSC through the SpringIT project.</li>
+              <li>Implemented court search and filtering by city, surface, and availability, time-slot booking with dynamic pricing, user reviews, a personal booking dashboard, and an admin panel for managing courts, bookings, and platform statistics.</li>
             </ul>
-            <div class="project-toggles" role="group" aria-label="Tech stack toggles">
-              <div class="pill-toggle">Python</div>
-              <div class="pill-toggle">JavaScript</div>
-              <div class="pill-toggle">HTML</div>
-              <div class="pill-toggle">Inno Setup</div>
-              <div class="pill-toggle">Expo Go</div>
-            </div>
-            <div class="project-actions">
-              <a href="https://github.com/Vktr1101/Password-Generator-PC" class="btn-primary" target="_blank" aria-label="Open project on GitHub">
-                <img src="Icons/github.png" alt="" class="btn-icon" />
-                <span>View Code (PC Version)</span>
+            <ul class="pcard-tech">
+              <li>React</li><li>TypeScript</li><li>Tailwind</li><li>Node.js</li><li>Express</li><li>Supabase</li>
+            </ul>
+            <div class="pcard-actions">
+              <a href="https://courtbookpadel.onrender.com/" target="_blank" rel="noopener" class="pc-btn primary">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 14 21 3m0 0h-6m6 0v6M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>
+                Live Demo
               </a>
-              <a href="https://github.com/Vktr1101/Password-Generator-mobile" class="btn-primary" target="_blank" aria-label="Open project on GitHub">
-                <img src="Icons/github.png" alt="" class="btn-icon" />
-                <span>View Code (Mobile Version)</span>
-              </a>
+              <a href="https://github.com/Vktr1101/hackathon_NextLevelPadel" target="_blank" rel="noopener" class="pc-btn"><i class="devicon-github-original"></i> View Code</a>
             </div>
           </article>
 
-          <!-- Project 3 -->
-          <article class="project-card center">
-            <h3 class="project-title">Pixel Battle</h3>
-            <ul class="project-points">
-              <li>Collaborative demo pixel-art web app inspired by Reddit’s r/Place.</li>
-              <li>Users can create rooms, choose colors, and paint pixels together on a shared canvas.</li>
-              <li>The project already includes core features such as user authentication, encrypted data storage, customizable color palettes, and light/dark mode.</li>
+          <!-- SQL Engine -->
+          <article class="pcard">
+            <h3 class="pcard-title">SQL Engine</h3>
+            <ul class="pcard-points">
+              <li>A lightweight SQL database engine developed in C++, supporting table creation, data insertion, indexing, and CSV import.</li>
+              <li>Includes a simple, user-friendly interactive interface designed to ensure ease of use for beginners.</li>
             </ul>
-            <div class="project-toggles" role="group" aria-label="Tech stack toggles">
-              <div class="pill-toggle">HTML</div>
-              <div class="pill-toggle">JavaScript</div>
+            <ul class="pcard-tech">
+              <li>C++</li><li>CMake</li>
+            </ul>
+            <div class="pcard-actions">
+              <a href="https://github.com/ervin49/sql_engine" target="_blank" rel="noopener" class="pc-btn"><i class="devicon-github-original"></i> View Code</a>
             </div>
-            <div class="project-actions">
-              <a href="https://github.com/Vktr1101/Pixel_Battle" class="btn-primary" target="_blank" aria-label="Open project on GitHub">
-                <img src="Icons/github.png" alt="" class="btn-icon" />
-                <span>View Code</span>
+          </article>
+
+          <!-- Hangman -->
+          <article class="pcard">
+            <h3 class="pcard-title">Hanged Man</h3>
+            <ul class="pcard-points">
+              <li>Full-stack web implementation of the classic Hangman game, featuring user authentication and personal game history tracking.</li>
+              <li>Built with a Node.js/Express backend and SQLite storage, using bcrypt-hashed passwords and session-based authentication, with a vanilla JavaScript frontend.</li>
+            </ul>
+            <ul class="pcard-tech">
+              <li>Node.js</li><li>Express</li><li>SQLite</li><li>JavaScript</li><li>HTML</li><li>CSS</li>
+            </ul>
+            <div class="pcard-actions">
+              <a href="https://hanged-man-doh2.onrender.com/" target="_blank" rel="noopener" class="pc-btn primary">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 14 21 3m0 0h-6m6 0v6M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"/></svg>
+                Live Demo
               </a>
+              <a href="https://github.com/Vktr1101/hanged-man" target="_blank" rel="noopener" class="pc-btn"><i class="devicon-github-original"></i> View Code</a>
             </div>
           </article>
 
         </div>
-      </section>
-    </main>
-  </div>
+      </div>
+      <div class="carousel-dots" id="carDots" role="tablist" aria-label="Project navigation"></div>
+    </section>
 
-  <script src="script.js?v=15" defer></script>
+    <!-- EDUCATION -->
+    <section id="education" class="section reveal">
+      <p class="eyebrow"><span class="eyebrow-idx"></span> Education</p>
+      <h2 class="section-title">Education</h2>
+      <div class="edu-list">
+        <div class="edu-item">
+          <div class="edu-head">
+            <h3 class="edu-school">Faculty of Economic Cybernetics, Statistics and Computer Science, ASE Bucharest</h3>
+            <span class="edu-date">Oct 2024 — Jul 2027</span>
+          </div>
+          <p class="edu-degree">Bachelor's Degree, Computer Science</p>
+        </div>
+        <div class="edu-item">
+          <div class="edu-head">
+            <h3 class="edu-school">National College "Matei Basarab" Bucharest</h3>
+            <span class="edu-date">Sep 2020 — Jul 2024</span>
+          </div>
+          <p class="edu-degree">High School Diploma, Mathematics and Computer Science</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section id="cv" class="section reveal">
+      <p class="eyebrow"><span class="eyebrow-idx"></span> CV</p>
+      <div class="cv-head">
+        <h2 class="section-title">Curriculum Vitae</h2>
+        <a href="Icons/Victor_Mihai_Ilie.pdf" download class="dl-btn dl-inline">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19h16"/></svg>
+          Download PDF
+        </a>
+      </div>
+      <div class="cv-frame">
+        <iframe src="Icons/Victor_Mihai_Ilie.pdf#toolbar=0&navpanes=0&view=FitH" title="CV preview" loading="lazy"></iframe>
+        <a href="Icons/Victor_Mihai_Ilie.pdf" target="_blank" rel="noopener" class="cv-open-mobile">Open CV in new tab</a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="script.js?v=1" defer></script>
 </body>
 </html>
