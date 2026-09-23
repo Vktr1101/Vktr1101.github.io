@@ -274,7 +274,7 @@ body {
   border-radius: var(--radius); padding: 16px 18px; margin-bottom: 12px;
   transition: border-color .2s, transform .12s;
 }
-.tl-role:hover { border-color: var(--accent-line); transform: translateX(2px); }
+.tl-role:hover { border-color: var(--accent-line); /*transform: translateX(2px);*/ }
 .tl-role:last-child { margin-bottom: 0; }
 .role-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
 .role-title { font-weight: 600; font-size: 15.5px; color: var(--text); }
@@ -358,7 +358,7 @@ body {
   padding: 18px 20px; border-left: 3px solid var(--accent);
   transition: border-color .2s, transform .12s;
 }
-.edu-item:hover { transform: translateX(2px); }
+/*.edu-item:hover { transform: translateX(2px); }*/
 .edu-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
 .edu-school { font-family: var(--f-display); font-weight: 600; font-size: 17px; margin: 0; letter-spacing: -0.01em; }
 .edu-date { font-family: var(--f-mono); font-size: 12.5px; color: var(--signal); white-space: nowrap; }
